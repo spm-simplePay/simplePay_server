@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SimplePay_HaendlerdatenModelStoreContainer" CdmEntityContainer="SimplePay_HaendlerdatenEntities">
+    <EntitySetMapping Name="Bestellposition">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Bestellposition">
+        <MappingFragment StoreEntitySet="Bestellposition">
+          <ScalarProperty Name="bp_id" ColumnName="bp_id" />
+          <ScalarProperty Name="menge" ColumnName="menge" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="uhrzeit" ColumnName="uhrzeit" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bestellung">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Bestellung">
+        <MappingFragment StoreEntitySet="Bestellung">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="uhrzeit" ColumnName="uhrzeit" />
+          <ScalarProperty Name="k_id" ColumnName="k_id" />
+          <ScalarProperty Name="mwst_id" ColumnName="mwst_id" />
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="kt_id" ColumnName="kt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategorie">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Kategorie">
+        <MappingFragment StoreEntitySet="Kategorie">
+          <ScalarProperty Name="kat_id" ColumnName="kat_id" />
+          <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+          <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kunde">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Kunde">
+        <MappingFragment StoreEntitySet="Kunde">
+          <ScalarProperty Name="k_id" ColumnName="k_id" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kunde_Tisch">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Kunde_Tisch">
+        <MappingFragment StoreEntitySet="Kunde_Tisch">
+          <ScalarProperty Name="kt_id" ColumnName="kt_id" />
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="k_id" ColumnName="k_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mitarbeiter">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Mitarbeiter">
+        <MappingFragment StoreEntitySet="Mitarbeiter">
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="vorname" ColumnName="vorname" />
+          <ScalarProperty Name="nachname" ColumnName="nachname" />
+          <ScalarProperty Name="nutzername" ColumnName="nutzername" />
+          <ScalarProperty Name="passwort" ColumnName="passwort" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+          <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+          <ScalarProperty Name="ro_id" ColumnName="ro_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MwSt_Satz">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.MwSt_Satz">
+        <MappingFragment StoreEntitySet="MwSt_Satz">
+          <ScalarProperty Name="mwst_id" ColumnName="mwst_id" />
+          <ScalarProperty Name="satz" ColumnName="satz" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+          <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produkt">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Produkt">
+        <MappingFragment StoreEntitySet="Produkt">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+          <ScalarProperty Name="preis" ColumnName="preis" />
+          <ScalarProperty Name="mengeneinheit" ColumnName="mengeneinheit" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+          <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produkt_Kategorie">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Produkt_Kategorie">
+        <MappingFragment StoreEntitySet="Produkt_Kategorie">
+          <ScalarProperty Name="pkat_id" ColumnName="pkat_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="kat_id" ColumnName="kat_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produkt_Zusatz">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Produkt_Zusatz">
+        <MappingFragment StoreEntitySet="Produkt_Zusatz">
+          <ScalarProperty Name="pz_id" ColumnName="pz_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="z_id" ColumnName="z_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rechnung">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Rechnung">
+        <MappingFragment StoreEntitySet="Rechnung">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="uhrzeit" ColumnName="uhrzeit" />
+          <ScalarProperty Name="bezahlt" ColumnName="bezahlt" />
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rolle">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Rolle">
+        <MappingFragment StoreEntitySet="Rolle">
+          <ScalarProperty Name="ro_id" ColumnName="ro_id" />
+          <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tisch">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Tisch">
+        <MappingFragment StoreEntitySet="Tisch">
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zusatz">
+      <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Zusatz">
+        <MappingFragment StoreEntitySet="Zusatz">
+          <ScalarProperty Name="z_id" ColumnName="z_id" />
+          <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+          <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+          <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
