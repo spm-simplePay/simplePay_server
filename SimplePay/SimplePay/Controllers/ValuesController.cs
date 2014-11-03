@@ -15,6 +15,7 @@ namespace SimplePay.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            String test = "test";
             return new string[] { "value1", "value2" };
         }
 
