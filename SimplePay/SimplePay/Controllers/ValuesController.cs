@@ -10,7 +10,7 @@ namespace SimplePay.Controllers
 {
     public class ValuesController : ApiController
     {
-
+        // Dritter Schuss
         SimplePay_HaendlerdatenEntities db = new SimplePay_HaendlerdatenEntities();
         // GET api/values
         public IEnumerable<string> Get()
