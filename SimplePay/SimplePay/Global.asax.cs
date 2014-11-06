@@ -12,8 +12,14 @@ namespace SimplePay
     // Hinweis: Anweisungen zum Aktivieren des klassischen Modus von IIS6 oder IIS7 
     // finden Sie unter "http://go.microsoft.com/?LinkId=9394801".
 
+
     public class WebApiApplication : System.Web.HttpApplication
     {
+        void ConfigureApi(HttpConfiguration config)
+        {
+            // Remove the XML formatter
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+        }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -22,6 +28,7 @@ namespace SimplePay
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ConfigureApi(GlobalConfiguration.Configuration);
         }
     }
 }

@@ -24,10 +24,10 @@ namespace SimplePay.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public Tisch Get(int id)
         {
             Tisch tisch = db.Tisch.Find(id);
-            return tisch.bezeichnung;
+            return tisch;
         }
 
         // POST api/values
