@@ -9,8 +9,10 @@
 
 namespace SimplePay.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
+    using System.Xml.Serialization;
     
     public partial class Tisch
     {
@@ -22,7 +24,9 @@ namespace SimplePay.Models
         public int t_id { get; set; }
         public string bezeichnung { get; set; }
         public System.DateTime eingetragen_am { get; set; }
-    
+        
+        [XmlIgnore]
+        [JsonIgnore]
         public virtual ICollection<Kunde_Tisch> Kunde_Tisch { get; set; }
     }
 }

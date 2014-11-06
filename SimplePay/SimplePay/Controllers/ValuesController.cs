@@ -13,10 +13,14 @@ namespace SimplePay.Controllers
         // Dritter Schuss
         SimplePay_HaendlerdatenEntities db = new SimplePay_HaendlerdatenEntities();
         // GET api/values
-        public IEnumerable<string> Get()
+        //public IEnumerable<string> Get()
+        public IEnumerable<Tisch> Get()
         {
-            String test = "test";
-            return new string[] { "value1", "value2" };
+            IEnumerable<Tisch> tisch = db.Tisch.ToList();
+            return tisch;
+
+
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
