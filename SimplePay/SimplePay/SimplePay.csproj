@@ -163,15 +163,25 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adresse.cs">
+      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Bestellposition.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Bestellung.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Haendler.cs">
+      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Haendlerart.cs">
+      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kategorie.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
@@ -188,6 +198,12 @@
     <Compile Include="Models\MwSt_Satz.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Nutzer.cs">
+      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nutzerart.cs">
+      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Produkt.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
     </Compile>
@@ -196,6 +212,9 @@
     </Compile>
     <Compile Include="Models\Produkt_Zusatz.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provision.cs">
+      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rechnung.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
@@ -217,6 +236,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SimplePay_Haendlerdaten.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SimplePay_Stammdaten.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SimplePay_Stammdaten.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SimplePay_Stammdaten.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SimplePay_Stammdaten.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
@@ -314,6 +348,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SimplePay_Haendlerdaten.edmx</DependentUpon>
       <LastGenOutput>SimplePay_Haendlerdaten.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\SimplePay_Stammdaten.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SimplePay_Stammdaten.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SimplePay_Stammdaten.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
+      <LastGenOutput>SimplePay_Stammdaten.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SimplePay_Stammdaten.edmx.diagram">
+      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SimplePay_Stammdaten.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
+      <LastGenOutput>SimplePay_Stammdaten.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />

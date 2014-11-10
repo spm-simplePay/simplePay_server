@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SimplePay_StammdatenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adresse">
+          <Key>
+            <PropertyRef Name="a_id" />
+          </Key>
+          <Property Name="a_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strasse" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hausnummer" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="plz" Type="int" Nullable="false" />
+          <Property Name="ort" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Haendler">
+          <Key>
+            <PropertyRef Name="h_ID" />
+          </Key>
+          <Property Name="h_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+          <Property Name="a_id" Type="int" Nullable="false" />
+          <Property Name="ha_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Haendlerart">
+          <Key>
+            <PropertyRef Name="ha_id" />
+          </Key>
+          <Property Name="ha_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nutzer">
+          <Key>
+            <PropertyRef Name="n_id" />
+          </Key>
+          <Property Name="n_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vorname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nachname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="geburtstag" Type="date" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="passwort" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="paypin" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+          <Property Name="a_id" Type="int" Nullable="false" />
+          <Property Name="na_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nutzerart">
+          <Key>
+            <PropertyRef Name="na_id" />
+          </Key>
+          <Property Name="na_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provision">
+          <Key>
+            <PropertyRef Name="pv_id" />
+          </Key>
+          <Property Name="pv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wert" Type="float" Nullable="false" />
+          <Property Name="monat" Type="int" Nullable="false" />
+          <Property Name="jahr" Type="int" Nullable="false" />
+          <Property Name="waehrung" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+          <Property Name="h_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Haendler_Adresse">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
+          <End Role="Haendler" Type="Self.Haendler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresse">
+              <PropertyRef Name="a_id" />
+            </Principal>
+            <Dependent Role="Haendler">
+              <PropertyRef Name="a_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Haendler_Haendlerart">
+          <End Role="Haendlerart" Type="Self.Haendlerart" Multiplicity="1" />
+          <End Role="Haendler" Type="Self.Haendler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Haendlerart">
+              <PropertyRef Name="ha_id" />
+            </Principal>
+            <Dependent Role="Haendler">
+              <PropertyRef Name="ha_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nutzer_Adresse">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
+          <End Role="Nutzer" Type="Self.Nutzer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresse">
+              <PropertyRef Name="a_id" />
+            </Principal>
+            <Dependent Role="Nutzer">
+              <PropertyRef Name="a_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nutzer_Nutzerart">
+          <End Role="Nutzerart" Type="Self.Nutzerart" Multiplicity="1" />
+          <End Role="Nutzer" Type="Self.Nutzer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nutzerart">
+              <PropertyRef Name="na_id" />
+            </Principal>
+            <Dependent Role="Nutzer">
+              <PropertyRef Name="na_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provision_Haendler">
+          <End Role="Haendler" Type="Self.Haendler" Multiplicity="1" />
+          <End Role="Provision" Type="Self.Provision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Haendler">
+              <PropertyRef Name="h_ID" />
+            </Principal>
+            <Dependent Role="Provision">
+              <PropertyRef Name="h_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SimplePay_StammdatenModelStoreContainer">
+          <EntitySet Name="Adresse" EntityType="Self.Adresse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Haendler" EntityType="Self.Haendler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Haendlerart" EntityType="Self.Haendlerart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nutzer" EntityType="Self.Nutzer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nutzerart" EntityType="Self.Nutzerart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provision" EntityType="Self.Provision" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Haendler_Adresse" Association="Self.FK_Haendler_Adresse">
+            <End Role="Adresse" EntitySet="Adresse" />
+            <End Role="Haendler" EntitySet="Haendler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Haendler_Haendlerart" Association="Self.FK_Haendler_Haendlerart">
+            <End Role="Haendlerart" EntitySet="Haendlerart" />
+            <End Role="Haendler" EntitySet="Haendler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nutzer_Adresse" Association="Self.FK_Nutzer_Adresse">
+            <End Role="Adresse" EntitySet="Adresse" />
+            <End Role="Nutzer" EntitySet="Nutzer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nutzer_Nutzerart" Association="Self.FK_Nutzer_Nutzerart">
+            <End Role="Nutzerart" EntitySet="Nutzerart" />
+            <End Role="Nutzer" EntitySet="Nutzer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provision_Haendler" Association="Self.FK_Provision_Haendler">
+            <End Role="Haendler" EntitySet="Haendler" />
+            <End Role="Provision" EntitySet="Provision" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SimplePay_StammdatenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adresse">
+          <Key>
+            <PropertyRef Name="a_id" />
+          </Key>
+          <Property Name="a_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strasse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hausnummer" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="plz" Type="Int32" Nullable="false" />
+          <Property Name="ort" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Haendler" Relationship="Self.FK_Haendler_Adresse" FromRole="Adresse" ToRole="Haendler" />
+          <NavigationProperty Name="Nutzer" Relationship="Self.FK_Nutzer_Adresse" FromRole="Adresse" ToRole="Nutzer" />
+        </EntityType>
+        <EntityType Name="Haendler">
+          <Key>
+            <PropertyRef Name="h_ID" />
+          </Key>
+          <Property Name="h_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <Property Name="a_id" Type="Int32" Nullable="false" />
+          <Property Name="ha_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adresse" Relationship="Self.FK_Haendler_Adresse" FromRole="Haendler" ToRole="Adresse" />
+          <NavigationProperty Name="Haendlerart" Relationship="Self.FK_Haendler_Haendlerart" FromRole="Haendler" ToRole="Haendlerart" />
+          <NavigationProperty Name="Provision" Relationship="Self.FK_Provision_Haendler" FromRole="Haendler" ToRole="Provision" />
+        </EntityType>
+        <EntityType Name="Haendlerart">
+          <Key>
+            <PropertyRef Name="ha_id" />
+          </Key>
+          <Property Name="ha_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Haendler" Relationship="Self.FK_Haendler_Haendlerart" FromRole="Haendlerart" ToRole="Haendler" />
+        </EntityType>
+        <EntityType Name="Nutzer">
+          <Key>
+            <PropertyRef Name="n_id" />
+          </Key>
+          <Property Name="n_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vorname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nachname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="geburtstag" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passwort" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="paypin" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <Property Name="a_id" Type="Int32" Nullable="false" />
+          <Property Name="na_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adresse" Relationship="Self.FK_Nutzer_Adresse" FromRole="Nutzer" ToRole="Adresse" />
+          <NavigationProperty Name="Nutzerart" Relationship="Self.FK_Nutzer_Nutzerart" FromRole="Nutzer" ToRole="Nutzerart" />
+        </EntityType>
+        <EntityType Name="Nutzerart">
+          <Key>
+            <PropertyRef Name="na_id" />
+          </Key>
+          <Property Name="na_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Nutzer" Relationship="Self.FK_Nutzer_Nutzerart" FromRole="Nutzerart" ToRole="Nutzer" />
+        </EntityType>
+        <EntityType Name="Provision">
+          <Key>
+            <PropertyRef Name="pv_id" />
+          </Key>
+          <Property Name="pv_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wert" Type="Double" Nullable="false" />
+          <Property Name="monat" Type="Int32" Nullable="false" />
+          <Property Name="jahr" Type="Int32" Nullable="false" />
+          <Property Name="waehrung" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <Property Name="h_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Haendler" Relationship="Self.FK_Provision_Haendler" FromRole="Provision" ToRole="Haendler" />
+        </EntityType>
+        <Association Name="FK_Haendler_Adresse">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
+          <End Role="Haendler" Type="Self.Haendler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresse">
+              <PropertyRef Name="a_id" />
+            </Principal>
+            <Dependent Role="Haendler">
+              <PropertyRef Name="a_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nutzer_Adresse">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
+          <End Role="Nutzer" Type="Self.Nutzer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresse">
+              <PropertyRef Name="a_id" />
+            </Principal>
+            <Dependent Role="Nutzer">
+              <PropertyRef Name="a_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Haendler_Haendlerart">
+          <End Role="Haendlerart" Type="Self.Haendlerart" Multiplicity="1" />
+          <End Role="Haendler" Type="Self.Haendler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Haendlerart">
+              <PropertyRef Name="ha_id" />
+            </Principal>
+            <Dependent Role="Haendler">
+              <PropertyRef Name="ha_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provision_Haendler">
+          <End Role="Haendler" Type="Self.Haendler" Multiplicity="1" />
+          <End Role="Provision" Type="Self.Provision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Haendler">
+              <PropertyRef Name="h_ID" />
+            </Principal>
+            <Dependent Role="Provision">
+              <PropertyRef Name="h_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nutzer_Nutzerart">
+          <End Role="Nutzerart" Type="Self.Nutzerart" Multiplicity="1" />
+          <End Role="Nutzer" Type="Self.Nutzer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nutzerart">
+              <PropertyRef Name="na_id" />
+            </Principal>
+            <Dependent Role="Nutzer">
+              <PropertyRef Name="na_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SimplePay_StammdatenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresse" EntityType="Self.Adresse" />
+          <EntitySet Name="Haendler" EntityType="Self.Haendler" />
+          <EntitySet Name="Haendlerart" EntityType="Self.Haendlerart" />
+          <EntitySet Name="Nutzer" EntityType="Self.Nutzer" />
+          <EntitySet Name="Nutzerart" EntityType="Self.Nutzerart" />
+          <EntitySet Name="Provision" EntityType="Self.Provision" />
+          <AssociationSet Name="FK_Haendler_Adresse" Association="Self.FK_Haendler_Adresse">
+            <End Role="Adresse" EntitySet="Adresse" />
+            <End Role="Haendler" EntitySet="Haendler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nutzer_Adresse" Association="Self.FK_Nutzer_Adresse">
+            <End Role="Adresse" EntitySet="Adresse" />
+            <End Role="Nutzer" EntitySet="Nutzer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Haendler_Haendlerart" Association="Self.FK_Haendler_Haendlerart">
+            <End Role="Haendlerart" EntitySet="Haendlerart" />
+            <End Role="Haendler" EntitySet="Haendler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provision_Haendler" Association="Self.FK_Provision_Haendler">
+            <End Role="Haendler" EntitySet="Haendler" />
+            <End Role="Provision" EntitySet="Provision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nutzer_Nutzerart" Association="Self.FK_Nutzer_Nutzerart">
+            <End Role="Nutzerart" EntitySet="Nutzerart" />
+            <End Role="Nutzer" EntitySet="Nutzer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SimplePay_StammdatenModelStoreContainer" CdmEntityContainer="SimplePay_StammdatenEntities">
+          <EntitySetMapping Name="Adresse">
+            <EntityTypeMapping TypeName="SimplePay_StammdatenModel.Adresse">
+              <MappingFragment StoreEntitySet="Adresse">
+                <ScalarProperty Name="a_id" ColumnName="a_id" />
+                <ScalarProperty Name="strasse" ColumnName="strasse" />
+                <ScalarProperty Name="hausnummer" ColumnName="hausnummer" />
+                <ScalarProperty Name="plz" ColumnName="plz" />
+                <ScalarProperty Name="ort" ColumnName="ort" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Haendler">
+            <EntityTypeMapping TypeName="SimplePay_StammdatenModel.Haendler">
+              <MappingFragment StoreEntitySet="Haendler">
+                <ScalarProperty Name="h_ID" ColumnName="h_ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+                <ScalarProperty Name="a_id" ColumnName="a_id" />
+                <ScalarProperty Name="ha_id" ColumnName="ha_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Haendlerart">
+            <EntityTypeMapping TypeName="SimplePay_StammdatenModel.Haendlerart">
+              <MappingFragment StoreEntitySet="Haendlerart">
+                <ScalarProperty Name="ha_id" ColumnName="ha_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nutzer">
+            <EntityTypeMapping TypeName="SimplePay_StammdatenModel.Nutzer">
+              <MappingFragment StoreEntitySet="Nutzer">
+                <ScalarProperty Name="n_id" ColumnName="n_id" />
+                <ScalarProperty Name="vorname" ColumnName="vorname" />
+                <ScalarProperty Name="nachname" ColumnName="nachname" />
+                <ScalarProperty Name="geburtstag" ColumnName="geburtstag" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="passwort" ColumnName="passwort" />
+                <ScalarProperty Name="paypin" ColumnName="paypin" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+                <ScalarProperty Name="a_id" ColumnName="a_id" />
+                <ScalarProperty Name="na_id" ColumnName="na_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nutzerart">
+            <EntityTypeMapping TypeName="SimplePay_StammdatenModel.Nutzerart">
+              <MappingFragment StoreEntitySet="Nutzerart">
+                <ScalarProperty Name="na_id" ColumnName="na_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provision">
+            <EntityTypeMapping TypeName="SimplePay_StammdatenModel.Provision">
+              <MappingFragment StoreEntitySet="Provision">
+                <ScalarProperty Name="pv_id" ColumnName="pv_id" />
+                <ScalarProperty Name="wert" ColumnName="wert" />
+                <ScalarProperty Name="monat" ColumnName="monat" />
+                <ScalarProperty Name="jahr" ColumnName="jahr" />
+                <ScalarProperty Name="waehrung" ColumnName="waehrung" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+                <ScalarProperty Name="h_id" ColumnName="h_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

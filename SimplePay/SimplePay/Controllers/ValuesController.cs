@@ -12,6 +12,7 @@ namespace SimplePay.Controllers
     {
         // Dritter Schuss
         SimplePay_HaendlerdatenEntities db = new SimplePay_HaendlerdatenEntities();
+        
         // GET api/values
         //public IEnumerable<string> Get()
         public IEnumerable<Tisch> Get()
