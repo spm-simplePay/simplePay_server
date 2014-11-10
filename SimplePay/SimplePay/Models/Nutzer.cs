@@ -27,7 +27,6 @@ namespace SimplePay.Models
         public int a_id { get; set; }
         public int na_id { get; set; }
 
-        [JsonIgnore]
         public virtual Adresse Adresse { get; set; }
 
         [JsonIgnore]

@@ -13,9 +13,9 @@ namespace SimplePay.Controllers
         SimplePay_StammdatenEntities db_s = new SimplePay_StammdatenEntities();
 
         // GET api/reg
-        public IEnumerable<string> Get()
+        public IEnumerable<Nutzer> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db_s.Nutzer.ToList();
         }
 
         // GET api/reg/5
@@ -25,11 +25,18 @@ namespace SimplePay.Controllers
         }
 
         // POST api/reg
-        public void Post([FromBody]Nutzer value)
+        public void Post([FromBody]Nutzer nutzer)
         {
-            db_s.Nutzer.Add(value);
+            db_s.Adresse.Add(nutzer.Adresse);
             db_s.SaveChanges();
+
+            nutzer.a_id = nutzer.Adresse.a_id;
+            db_s.Nutzer.Add(nutzer);
+            db_s.SaveChanges();
+            
+
         }
+
 
         // PUT api/reg/5
         public void Put(int id, [FromBody]string value)
