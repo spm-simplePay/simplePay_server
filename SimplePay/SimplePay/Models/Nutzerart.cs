@@ -11,7 +11,6 @@ namespace SimplePay.Models
 {
     using System;
     using System.Collections.Generic;
-    using Newtonsoft.Json;
     
     public partial class Nutzerart
     {
@@ -23,8 +22,7 @@ namespace SimplePay.Models
         public int na_id { get; set; }
         public string bezeichnung { get; set; }
         public System.DateTime eingetragen_am { get; set; }
-
-        [JsonIgnore]
+    
         public virtual ICollection<Nutzer> Nutzer { get; set; }
     }
 }

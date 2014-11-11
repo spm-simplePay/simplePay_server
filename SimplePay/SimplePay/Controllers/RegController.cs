@@ -27,9 +27,11 @@ namespace SimplePay.Controllers
         // POST api/reg
         public void Post([FromBody]Nutzer nutzer)
         {
+            nutzer.Adresse.geaendert_am = System.DateTime.Now;
             db_s.Adresse.Add(nutzer.Adresse);
             db_s.SaveChanges();
 
+            nutzer.eingetragen_am = System.DateTime.Now;
             nutzer.a_id = nutzer.Adresse.a_id;
             db_s.Nutzer.Add(nutzer);
             db_s.SaveChanges();

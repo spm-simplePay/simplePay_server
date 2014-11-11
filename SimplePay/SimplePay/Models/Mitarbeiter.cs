@@ -23,7 +23,7 @@ namespace SimplePay.Models
         public string vorname { get; set; }
         public string nachname { get; set; }
         public string nutzername { get; set; }
-        public string passwort { get; set; }
+        public byte[] passwort { get; set; }
         public System.DateTime eingetragen_am { get; set; }
         public Nullable<System.DateTime> geaendert_am { get; set; }
         public int ro_id { get; set; }

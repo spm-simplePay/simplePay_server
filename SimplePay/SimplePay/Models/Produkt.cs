@@ -9,6 +9,7 @@
 
 namespace SimplePay.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -24,12 +25,17 @@ namespace SimplePay.Models
         public int p_id { get; set; }
         public string bezeichnung { get; set; }
         public double preis { get; set; }
-        public int mengeneinheit { get; set; }
+        public string mengeneinheit { get; set; }
         public System.DateTime eingetragen_am { get; set; }
         public Nullable<System.DateTime> geaendert_am { get; set; }
-    
+
+        [JsonIgnore]
         public virtual ICollection<Bestellposition> Bestellposition { get; set; }
+        
+        [JsonIgnore]
         public virtual ICollection<Produkt_Kategorie> Produkt_Kategorie { get; set; }
+       
+        [JsonIgnore]
         public virtual ICollection<Produkt_Zusatz> Produkt_Zusatz { get; set; }
     }
 }

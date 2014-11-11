@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SimplePay_HaendlerdatenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bestellposition">
+          <Key>
+            <PropertyRef Name="bp_id" />
+          </Key>
+          <Property Name="bp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menge" Type="int" Nullable="false" />
+          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="uhrzeit" Type="time" Precision="0" Nullable="false" />
+          <Property Name="p_id" Type="int" Nullable="false" />
+          <Property Name="b_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bestellung">
+          <Key>
+            <PropertyRef Name="b_id" />
+          </Key>
+          <Property Name="b_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="uhrzeit" Type="time" Precision="0" Nullable="false" />
+          <Property Name="k_id" Type="int" Nullable="false" />
+          <Property Name="mwst_id" Type="int" Nullable="false" />
+          <Property Name="m_id" Type="int" Nullable="false" />
+          <Property Name="kt_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="kat_id" />
+          </Key>
+          <Property Name="kat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Kunde">
+          <Key>
+            <PropertyRef Name="k_id" />
+          </Key>
+          <Property Name="k_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kunde_Tisch">
+          <Key>
+            <PropertyRef Name="kt_id" />
+          </Key>
+          <Property Name="kt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="t_id" Type="int" Nullable="false" />
+          <Property Name="k_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mitarbeiter">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vorname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nachname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nutzername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="passwort" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+          <Property Name="ro_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MwSt_Satz">
+          <Key>
+            <PropertyRef Name="mwst_id" />
+          </Key>
+          <Property Name="mwst_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="satz" Type="float" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Produkt">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="preis" Type="float" Nullable="false" />
+          <Property Name="mengeneinheit" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Produkt_Kategorie">
+          <Key>
+            <PropertyRef Name="pkat_id" />
+          </Key>
+          <Property Name="pkat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_id" Type="int" Nullable="false" />
+          <Property Name="kat_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produkt_Zusatz">
+          <Key>
+            <PropertyRef Name="pz_id" />
+          </Key>
+          <Property Name="pz_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_id" Type="int" Nullable="false" />
+          <Property Name="z_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rechnung">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="uhrzeit" Type="time" Precision="0" Nullable="false" />
+          <Property Name="bezahlt" Type="bit" Nullable="false" />
+          <Property Name="b_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rolle">
+          <Key>
+            <PropertyRef Name="ro_id" />
+          </Key>
+          <Property Name="ro_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tisch">
+          <Key>
+            <PropertyRef Name="t_id" />
+          </Key>
+          <Property Name="t_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zusatz">
+          <Key>
+            <PropertyRef Name="z_id" />
+          </Key>
+          <Property Name="z_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="eingetragen_am" Type="date" Nullable="false" />
+          <Property Name="geaendert_am" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Bestellposition_Bestellung">
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="1" />
+          <End Role="Bestellposition" Type="Self.Bestellposition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bestellung">
+              <PropertyRef Name="b_id" />
+            </Principal>
+            <Dependent Role="Bestellposition">
+              <PropertyRef Name="b_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellposition_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Bestellposition" Type="Self.Bestellposition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Bestellposition">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_Kunde">
+          <End Role="Kunde" Type="Self.Kunde" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunde">
+              <PropertyRef Name="k_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="k_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_Kunde_Tisch">
+          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunde_Tisch">
+              <PropertyRef Name="kt_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="kt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_Mitarbeiter">
+          <End Role="Mitarbeiter" Type="Self.Mitarbeiter" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mitarbeiter">
+              <PropertyRef Name="m_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="m_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_MwSt">
+          <End Role="MwSt_Satz" Type="Self.MwSt_Satz" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MwSt_Satz">
+              <PropertyRef Name="mwst_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="mwst_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kunde_Tisch_Kunde">
+          <End Role="Kunde" Type="Self.Kunde" Multiplicity="1" />
+          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunde">
+              <PropertyRef Name="k_id" />
+            </Principal>
+            <Dependent Role="Kunde_Tisch">
+              <PropertyRef Name="k_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kunde_Tisch_Tisch">
+          <End Role="Tisch" Type="Self.Tisch" Multiplicity="1" />
+          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tisch">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="Kunde_Tisch">
+              <PropertyRef Name="t_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mitarbeiter_Rolle">
+          <End Role="Rolle" Type="Self.Rolle" Multiplicity="1" />
+          <End Role="Mitarbeiter" Type="Self.Mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rolle">
+              <PropertyRef Name="ro_id" />
+            </Principal>
+            <Dependent Role="Mitarbeiter">
+              <PropertyRef Name="ro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Kategorie_Kategorie">
+          <End Role="Kategorie" Type="Self.Kategorie" Multiplicity="1" />
+          <End Role="Produkt_Kategorie" Type="Self.Produkt_Kategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorie">
+              <PropertyRef Name="kat_id" />
+            </Principal>
+            <Dependent Role="Produkt_Kategorie">
+              <PropertyRef Name="kat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Kategorie_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Produkt_Kategorie" Type="Self.Produkt_Kategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Produkt_Kategorie">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Zusatz_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Produkt_Zusatz" Type="Self.Produkt_Zusatz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Produkt_Zusatz">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Zusatz_Zusatz">
+          <End Role="Zusatz" Type="Self.Zusatz" Multiplicity="1" />
+          <End Role="Produkt_Zusatz" Type="Self.Produkt_Zusatz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zusatz">
+              <PropertyRef Name="z_id" />
+            </Principal>
+            <Dependent Role="Produkt_Zusatz">
+              <PropertyRef Name="z_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rechnung_Bestellung">
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="1" />
+          <End Role="Rechnung" Type="Self.Rechnung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bestellung">
+              <PropertyRef Name="b_id" />
+            </Principal>
+            <Dependent Role="Rechnung">
+              <PropertyRef Name="b_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SimplePay_HaendlerdatenModelStoreContainer">
+          <EntitySet Name="Bestellposition" EntityType="Self.Bestellposition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bestellung" EntityType="Self.Bestellung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kunde" EntityType="Self.Kunde" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kunde_Tisch" EntityType="Self.Kunde_Tisch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mitarbeiter" EntityType="Self.Mitarbeiter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MwSt_Satz" EntityType="Self.MwSt_Satz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produkt" EntityType="Self.Produkt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produkt_Kategorie" EntityType="Self.Produkt_Kategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produkt_Zusatz" EntityType="Self.Produkt_Zusatz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rechnung" EntityType="Self.Rechnung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rolle" EntityType="Self.Rolle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tisch" EntityType="Self.Tisch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zusatz" EntityType="Self.Zusatz" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bestellposition_Bestellung" Association="Self.FK_Bestellposition_Bestellung">
+            <End Role="Bestellung" EntitySet="Bestellung" />
+            <End Role="Bestellposition" EntitySet="Bestellposition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellposition_Produkt" Association="Self.FK_Bestellposition_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Bestellposition" EntitySet="Bestellposition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_Kunde" Association="Self.FK_Bestellung_Kunde">
+            <End Role="Kunde" EntitySet="Kunde" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_Kunde_Tisch" Association="Self.FK_Bestellung_Kunde_Tisch">
+            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_Mitarbeiter" Association="Self.FK_Bestellung_Mitarbeiter">
+            <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_MwSt" Association="Self.FK_Bestellung_MwSt">
+            <End Role="MwSt_Satz" EntitySet="MwSt_Satz" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kunde_Tisch_Kunde" Association="Self.FK_Kunde_Tisch_Kunde">
+            <End Role="Kunde" EntitySet="Kunde" />
+            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kunde_Tisch_Tisch" Association="Self.FK_Kunde_Tisch_Tisch">
+            <End Role="Tisch" EntitySet="Tisch" />
+            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mitarbeiter_Rolle" Association="Self.FK_Mitarbeiter_Rolle">
+            <End Role="Rolle" EntitySet="Rolle" />
+            <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Kategorie_Kategorie" Association="Self.FK_Produkt_Kategorie_Kategorie">
+            <End Role="Kategorie" EntitySet="Kategorie" />
+            <End Role="Produkt_Kategorie" EntitySet="Produkt_Kategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Kategorie_Produkt" Association="Self.FK_Produkt_Kategorie_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt_Kategorie" EntitySet="Produkt_Kategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Zusatz_Produkt" Association="Self.FK_Produkt_Zusatz_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt_Zusatz" EntitySet="Produkt_Zusatz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Zusatz_Zusatz" Association="Self.FK_Produkt_Zusatz_Zusatz">
+            <End Role="Zusatz" EntitySet="Zusatz" />
+            <End Role="Produkt_Zusatz" EntitySet="Produkt_Zusatz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rechnung_Bestellung" Association="Self.FK_Rechnung_Bestellung">
+            <End Role="Bestellung" EntitySet="Bestellung" />
+            <End Role="Rechnung" EntitySet="Rechnung" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SimplePay_HaendlerdatenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bestellposition">
+          <Key>
+            <PropertyRef Name="bp_id" />
+          </Key>
+          <Property Name="bp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menge" Type="Int32" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="uhrzeit" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="p_id" Type="Int32" Nullable="false" />
+          <Property Name="b_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bestellung" Relationship="Self.FK_Bestellposition_Bestellung" FromRole="Bestellposition" ToRole="Bestellung" />
+          <NavigationProperty Name="Produkt" Relationship="Self.FK_Bestellposition_Produkt" FromRole="Bestellposition" ToRole="Produkt" />
+        </EntityType>
+        <EntityType Name="Bestellung">
+          <Key>
+            <PropertyRef Name="b_id" />
+          </Key>
+          <Property Name="b_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="uhrzeit" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="k_id" Type="Int32" Nullable="false" />
+          <Property Name="mwst_id" Type="Int32" Nullable="false" />
+          <Property Name="m_id" Type="Int32" Nullable="false" />
+          <Property Name="kt_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bestellposition" Relationship="Self.FK_Bestellposition_Bestellung" FromRole="Bestellung" ToRole="Bestellposition" />
+          <NavigationProperty Name="Kunde" Relationship="Self.FK_Bestellung_Kunde" FromRole="Bestellung" ToRole="Kunde" />
+          <NavigationProperty Name="Kunde_Tisch" Relationship="Self.FK_Bestellung_Kunde_Tisch" FromRole="Bestellung" ToRole="Kunde_Tisch" />
+          <NavigationProperty Name="Mitarbeiter" Relationship="Self.FK_Bestellung_Mitarbeiter" FromRole="Bestellung" ToRole="Mitarbeiter" />
+          <NavigationProperty Name="MwSt_Satz" Relationship="Self.FK_Bestellung_MwSt" FromRole="Bestellung" ToRole="MwSt_Satz" />
+          <NavigationProperty Name="Rechnung" Relationship="Self.FK_Rechnung_Bestellung" FromRole="Bestellung" ToRole="Rechnung" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="kat_id" />
+          </Key>
+          <Property Name="kat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Produkt_Kategorie" Relationship="Self.FK_Produkt_Kategorie_Kategorie" FromRole="Kategorie" ToRole="Produkt_Kategorie" />
+        </EntityType>
+        <EntityType Name="Kunde">
+          <Key>
+            <PropertyRef Name="k_id" />
+          </Key>
+          <Property Name="k_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Bestellung" Relationship="Self.FK_Bestellung_Kunde" FromRole="Kunde" ToRole="Bestellung" />
+          <NavigationProperty Name="Kunde_Tisch" Relationship="Self.FK_Kunde_Tisch_Kunde" FromRole="Kunde" ToRole="Kunde_Tisch" />
+        </EntityType>
+        <EntityType Name="Kunde_Tisch">
+          <Key>
+            <PropertyRef Name="kt_id" />
+          </Key>
+          <Property Name="kt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="t_id" Type="Int32" Nullable="false" />
+          <Property Name="k_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bestellung" Relationship="Self.FK_Bestellung_Kunde_Tisch" FromRole="Kunde_Tisch" ToRole="Bestellung" />
+          <NavigationProperty Name="Kunde" Relationship="Self.FK_Kunde_Tisch_Kunde" FromRole="Kunde_Tisch" ToRole="Kunde" />
+          <NavigationProperty Name="Tisch" Relationship="Self.FK_Kunde_Tisch_Tisch" FromRole="Kunde_Tisch" ToRole="Tisch" />
+        </EntityType>
+        <EntityType Name="Mitarbeiter">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vorname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nachname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nutzername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passwort" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <Property Name="ro_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bestellung" Relationship="Self.FK_Bestellung_Mitarbeiter" FromRole="Mitarbeiter" ToRole="Bestellung" />
+          <NavigationProperty Name="Rolle" Relationship="Self.FK_Mitarbeiter_Rolle" FromRole="Mitarbeiter" ToRole="Rolle" />
+        </EntityType>
+        <EntityType Name="MwSt_Satz">
+          <Key>
+            <PropertyRef Name="mwst_id" />
+          </Key>
+          <Property Name="mwst_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="satz" Type="Double" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Bestellung" Relationship="Self.FK_Bestellung_MwSt" FromRole="MwSt_Satz" ToRole="Bestellung" />
+        </EntityType>
+        <EntityType Name="Produkt">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="preis" Type="Double" Nullable="false" />
+          <Property Name="mengeneinheit" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Bestellposition" Relationship="Self.FK_Bestellposition_Produkt" FromRole="Produkt" ToRole="Bestellposition" />
+          <NavigationProperty Name="Produkt_Kategorie" Relationship="Self.FK_Produkt_Kategorie_Produkt" FromRole="Produkt" ToRole="Produkt_Kategorie" />
+          <NavigationProperty Name="Produkt_Zusatz" Relationship="Self.FK_Produkt_Zusatz_Produkt" FromRole="Produkt" ToRole="Produkt_Zusatz" />
+        </EntityType>
+        <EntityType Name="Produkt_Kategorie">
+          <Key>
+            <PropertyRef Name="pkat_id" />
+          </Key>
+          <Property Name="pkat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_id" Type="Int32" Nullable="false" />
+          <Property Name="kat_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kategorie" Relationship="Self.FK_Produkt_Kategorie_Kategorie" FromRole="Produkt_Kategorie" ToRole="Kategorie" />
+          <NavigationProperty Name="Produkt" Relationship="Self.FK_Produkt_Kategorie_Produkt" FromRole="Produkt_Kategorie" ToRole="Produkt" />
+        </EntityType>
+        <EntityType Name="Produkt_Zusatz">
+          <Key>
+            <PropertyRef Name="pz_id" />
+          </Key>
+          <Property Name="pz_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_id" Type="Int32" Nullable="false" />
+          <Property Name="z_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produkt" Relationship="Self.FK_Produkt_Zusatz_Produkt" FromRole="Produkt_Zusatz" ToRole="Produkt" />
+          <NavigationProperty Name="Zusatz" Relationship="Self.FK_Produkt_Zusatz_Zusatz" FromRole="Produkt_Zusatz" ToRole="Zusatz" />
+        </EntityType>
+        <EntityType Name="Rechnung">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="uhrzeit" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="bezahlt" Type="Boolean" Nullable="false" />
+          <Property Name="b_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bestellung" Relationship="Self.FK_Rechnung_Bestellung" FromRole="Rechnung" ToRole="Bestellung" />
+        </EntityType>
+        <EntityType Name="Rolle">
+          <Key>
+            <PropertyRef Name="ro_id" />
+          </Key>
+          <Property Name="ro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Mitarbeiter" Relationship="Self.FK_Mitarbeiter_Rolle" FromRole="Rolle" ToRole="Mitarbeiter" />
+        </EntityType>
+        <EntityType Name="Tisch">
+          <Key>
+            <PropertyRef Name="t_id" />
+          </Key>
+          <Property Name="t_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Kunde_Tisch" Relationship="Self.FK_Kunde_Tisch_Tisch" FromRole="Tisch" ToRole="Kunde_Tisch" />
+        </EntityType>
+        <EntityType Name="Zusatz">
+          <Key>
+            <PropertyRef Name="z_id" />
+          </Key>
+          <Property Name="z_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="geaendert_am" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Produkt_Zusatz" Relationship="Self.FK_Produkt_Zusatz_Zusatz" FromRole="Zusatz" ToRole="Produkt_Zusatz" />
+        </EntityType>
+        <Association Name="FK_Bestellposition_Bestellung">
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="1" />
+          <End Role="Bestellposition" Type="Self.Bestellposition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bestellung">
+              <PropertyRef Name="b_id" />
+            </Principal>
+            <Dependent Role="Bestellposition">
+              <PropertyRef Name="b_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellposition_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Bestellposition" Type="Self.Bestellposition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Bestellposition">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_Kunde">
+          <End Role="Kunde" Type="Self.Kunde" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunde">
+              <PropertyRef Name="k_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="k_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_Kunde_Tisch">
+          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunde_Tisch">
+              <PropertyRef Name="kt_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="kt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_Mitarbeiter">
+          <End Role="Mitarbeiter" Type="Self.Mitarbeiter" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mitarbeiter">
+              <PropertyRef Name="m_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="m_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestellung_MwSt">
+          <End Role="MwSt_Satz" Type="Self.MwSt_Satz" Multiplicity="1" />
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MwSt_Satz">
+              <PropertyRef Name="mwst_id" />
+            </Principal>
+            <Dependent Role="Bestellung">
+              <PropertyRef Name="mwst_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rechnung_Bestellung">
+          <End Role="Bestellung" Type="Self.Bestellung" Multiplicity="1" />
+          <End Role="Rechnung" Type="Self.Rechnung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bestellung">
+              <PropertyRef Name="b_id" />
+            </Principal>
+            <Dependent Role="Rechnung">
+              <PropertyRef Name="b_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Kategorie_Kategorie">
+          <End Role="Kategorie" Type="Self.Kategorie" Multiplicity="1" />
+          <End Role="Produkt_Kategorie" Type="Self.Produkt_Kategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorie">
+              <PropertyRef Name="kat_id" />
+            </Principal>
+            <Dependent Role="Produkt_Kategorie">
+              <PropertyRef Name="kat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kunde_Tisch_Kunde">
+          <End Role="Kunde" Type="Self.Kunde" Multiplicity="1" />
+          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunde">
+              <PropertyRef Name="k_id" />
+            </Principal>
+            <Dependent Role="Kunde_Tisch">
+              <PropertyRef Name="k_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kunde_Tisch_Tisch">
+          <End Role="Tisch" Type="Self.Tisch" Multiplicity="1" />
+          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tisch">
+              <PropertyRef Name="t_id" />
+            </Principal>
+            <Dependent Role="Kunde_Tisch">
+              <PropertyRef Name="t_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mitarbeiter_Rolle">
+          <End Role="Rolle" Type="Self.Rolle" Multiplicity="1" />
+          <End Role="Mitarbeiter" Type="Self.Mitarbeiter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rolle">
+              <PropertyRef Name="ro_id" />
+            </Principal>
+            <Dependent Role="Mitarbeiter">
+              <PropertyRef Name="ro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Kategorie_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Produkt_Kategorie" Type="Self.Produkt_Kategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Produkt_Kategorie">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Zusatz_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Produkt_Zusatz" Type="Self.Produkt_Zusatz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Produkt_Zusatz">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produkt_Zusatz_Zusatz">
+          <End Role="Zusatz" Type="Self.Zusatz" Multiplicity="1" />
+          <End Role="Produkt_Zusatz" Type="Self.Produkt_Zusatz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zusatz">
+              <PropertyRef Name="z_id" />
+            </Principal>
+            <Dependent Role="Produkt_Zusatz">
+              <PropertyRef Name="z_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SimplePay_HaendlerdatenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bestellposition" EntityType="Self.Bestellposition" />
+          <EntitySet Name="Bestellung" EntityType="Self.Bestellung" />
+          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" />
+          <EntitySet Name="Kunde" EntityType="Self.Kunde" />
+          <EntitySet Name="Kunde_Tisch" EntityType="Self.Kunde_Tisch" />
+          <EntitySet Name="Mitarbeiter" EntityType="Self.Mitarbeiter" />
+          <EntitySet Name="MwSt_Satz" EntityType="Self.MwSt_Satz" />
+          <EntitySet Name="Produkt" EntityType="Self.Produkt" />
+          <EntitySet Name="Produkt_Kategorie" EntityType="Self.Produkt_Kategorie" />
+          <EntitySet Name="Produkt_Zusatz" EntityType="Self.Produkt_Zusatz" />
+          <EntitySet Name="Rechnung" EntityType="Self.Rechnung" />
+          <EntitySet Name="Rolle" EntityType="Self.Rolle" />
+          <EntitySet Name="Tisch" EntityType="Self.Tisch" />
+          <EntitySet Name="Zusatz" EntityType="Self.Zusatz" />
+          <AssociationSet Name="FK_Bestellposition_Bestellung" Association="Self.FK_Bestellposition_Bestellung">
+            <End Role="Bestellung" EntitySet="Bestellung" />
+            <End Role="Bestellposition" EntitySet="Bestellposition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellposition_Produkt" Association="Self.FK_Bestellposition_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Bestellposition" EntitySet="Bestellposition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_Kunde" Association="Self.FK_Bestellung_Kunde">
+            <End Role="Kunde" EntitySet="Kunde" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_Kunde_Tisch" Association="Self.FK_Bestellung_Kunde_Tisch">
+            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_Mitarbeiter" Association="Self.FK_Bestellung_Mitarbeiter">
+            <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestellung_MwSt" Association="Self.FK_Bestellung_MwSt">
+            <End Role="MwSt_Satz" EntitySet="MwSt_Satz" />
+            <End Role="Bestellung" EntitySet="Bestellung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rechnung_Bestellung" Association="Self.FK_Rechnung_Bestellung">
+            <End Role="Bestellung" EntitySet="Bestellung" />
+            <End Role="Rechnung" EntitySet="Rechnung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Kategorie_Kategorie" Association="Self.FK_Produkt_Kategorie_Kategorie">
+            <End Role="Kategorie" EntitySet="Kategorie" />
+            <End Role="Produkt_Kategorie" EntitySet="Produkt_Kategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kunde_Tisch_Kunde" Association="Self.FK_Kunde_Tisch_Kunde">
+            <End Role="Kunde" EntitySet="Kunde" />
+            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kunde_Tisch_Tisch" Association="Self.FK_Kunde_Tisch_Tisch">
+            <End Role="Tisch" EntitySet="Tisch" />
+            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mitarbeiter_Rolle" Association="Self.FK_Mitarbeiter_Rolle">
+            <End Role="Rolle" EntitySet="Rolle" />
+            <End Role="Mitarbeiter" EntitySet="Mitarbeiter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Kategorie_Produkt" Association="Self.FK_Produkt_Kategorie_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt_Kategorie" EntitySet="Produkt_Kategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Zusatz_Produkt" Association="Self.FK_Produkt_Zusatz_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt_Zusatz" EntitySet="Produkt_Zusatz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produkt_Zusatz_Zusatz" Association="Self.FK_Produkt_Zusatz_Zusatz">
+            <End Role="Zusatz" EntitySet="Zusatz" />
+            <End Role="Produkt_Zusatz" EntitySet="Produkt_Zusatz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SimplePay_HaendlerdatenModelStoreContainer" CdmEntityContainer="SimplePay_HaendlerdatenEntities">
+          <EntitySetMapping Name="Bestellposition">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Bestellposition">
+              <MappingFragment StoreEntitySet="Bestellposition">
+                <ScalarProperty Name="bp_id" ColumnName="bp_id" />
+                <ScalarProperty Name="menge" ColumnName="menge" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="uhrzeit" ColumnName="uhrzeit" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bestellung">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Bestellung">
+              <MappingFragment StoreEntitySet="Bestellung">
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="uhrzeit" ColumnName="uhrzeit" />
+                <ScalarProperty Name="k_id" ColumnName="k_id" />
+                <ScalarProperty Name="mwst_id" ColumnName="mwst_id" />
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="kt_id" ColumnName="kt_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategorie">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Kategorie">
+              <MappingFragment StoreEntitySet="Kategorie">
+                <ScalarProperty Name="kat_id" ColumnName="kat_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kunde">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Kunde">
+              <MappingFragment StoreEntitySet="Kunde">
+                <ScalarProperty Name="k_id" ColumnName="k_id" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kunde_Tisch">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Kunde_Tisch">
+              <MappingFragment StoreEntitySet="Kunde_Tisch">
+                <ScalarProperty Name="kt_id" ColumnName="kt_id" />
+                <ScalarProperty Name="t_id" ColumnName="t_id" />
+                <ScalarProperty Name="k_id" ColumnName="k_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mitarbeiter">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Mitarbeiter">
+              <MappingFragment StoreEntitySet="Mitarbeiter">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="vorname" ColumnName="vorname" />
+                <ScalarProperty Name="nachname" ColumnName="nachname" />
+                <ScalarProperty Name="nutzername" ColumnName="nutzername" />
+                <ScalarProperty Name="passwort" ColumnName="passwort" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+                <ScalarProperty Name="ro_id" ColumnName="ro_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MwSt_Satz">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.MwSt_Satz">
+              <MappingFragment StoreEntitySet="MwSt_Satz">
+                <ScalarProperty Name="mwst_id" ColumnName="mwst_id" />
+                <ScalarProperty Name="satz" ColumnName="satz" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produkt">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Produkt">
+              <MappingFragment StoreEntitySet="Produkt">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="preis" ColumnName="preis" />
+                <ScalarProperty Name="mengeneinheit" ColumnName="mengeneinheit" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produkt_Kategorie">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Produkt_Kategorie">
+              <MappingFragment StoreEntitySet="Produkt_Kategorie">
+                <ScalarProperty Name="pkat_id" ColumnName="pkat_id" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="kat_id" ColumnName="kat_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produkt_Zusatz">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Produkt_Zusatz">
+              <MappingFragment StoreEntitySet="Produkt_Zusatz">
+                <ScalarProperty Name="pz_id" ColumnName="pz_id" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="z_id" ColumnName="z_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rechnung">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Rechnung">
+              <MappingFragment StoreEntitySet="Rechnung">
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="uhrzeit" ColumnName="uhrzeit" />
+                <ScalarProperty Name="bezahlt" ColumnName="bezahlt" />
+                <ScalarProperty Name="b_id" ColumnName="b_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rolle">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Rolle">
+              <MappingFragment StoreEntitySet="Rolle">
+                <ScalarProperty Name="ro_id" ColumnName="ro_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tisch">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Tisch">
+              <MappingFragment StoreEntitySet="Tisch">
+                <ScalarProperty Name="t_id" ColumnName="t_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zusatz">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Zusatz">
+              <MappingFragment StoreEntitySet="Zusatz">
+                <ScalarProperty Name="z_id" ColumnName="z_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+                <ScalarProperty Name="geaendert_am" ColumnName="geaendert_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

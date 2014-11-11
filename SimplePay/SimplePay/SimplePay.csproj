@@ -163,103 +163,101 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProduktController.cs" />
     <Compile Include="Controllers\RegController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adresse.cs">
-      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Bestellposition.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Bestellung.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Haendler.cs">
-      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Haendlerart.cs">
-      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kategorie.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kunde.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kunde_Tisch.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Mitarbeiter.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MwSt_Satz.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Nutzer.cs">
-      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Nutzerart.cs">
-      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produkt.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produkt_Kategorie.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produkt_Zusatz.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Provision.cs">
-      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rechnung.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rolle.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimplePay_Haendlerdaten.Context.cs">
+    <Compile Include="Models\SimplePay_HaendlerdatenEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimplePay_Haendlerdaten.Context.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimplePay_Haendlerdaten.cs">
+    <Compile Include="Models\SimplePay_HaendlerdatenEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimplePay_Haendlerdaten.Designer.cs">
+    <Compile Include="Models\SimplePay_HaendlerdatenEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimplePay_Haendlerdaten.edmx</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimplePay_Stammdaten.Context.cs">
+    <Compile Include="Models\SimplePay_StammdatenEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimplePay_Stammdaten.Context.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimplePay_Stammdaten.cs">
+    <Compile Include="Models\SimplePay_StammdatenEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimplePay_Stammdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimplePay_Stammdaten.Designer.cs">
+    <Compile Include="Models\SimplePay_StammdatenEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_StammdatenEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Tisch.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Zusatz.cs">
-      <DependentUpon>SimplePay_Haendlerdaten.tt</DependentUpon>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -332,39 +330,39 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\SimplePay_Haendlerdaten.edmx">
+    <EntityDeploy Include="Models\SimplePay_HaendlerdatenEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SimplePay_Haendlerdaten.Designer.cs</LastGenOutput>
+      <LastGenOutput>SimplePay_HaendlerdatenEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SimplePay_Haendlerdaten.Context.tt">
+    <Content Include="Models\SimplePay_HaendlerdatenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SimplePay_Haendlerdaten.edmx</DependentUpon>
-      <LastGenOutput>SimplePay_Haendlerdaten.Context.cs</LastGenOutput>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.edmx</DependentUpon>
+      <LastGenOutput>SimplePay_HaendlerdatenEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SimplePay_Haendlerdaten.edmx.diagram">
-      <DependentUpon>SimplePay_Haendlerdaten.edmx</DependentUpon>
+    <Content Include="Models\SimplePay_HaendlerdatenEntities.edmx.diagram">
+      <DependentUpon>SimplePay_HaendlerdatenEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\SimplePay_Haendlerdaten.tt">
+    <Content Include="Models\SimplePay_HaendlerdatenEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SimplePay_Haendlerdaten.edmx</DependentUpon>
-      <LastGenOutput>SimplePay_Haendlerdaten.cs</LastGenOutput>
+      <DependentUpon>SimplePay_HaendlerdatenEntities.edmx</DependentUpon>
+      <LastGenOutput>SimplePay_HaendlerdatenEntities.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="Models\SimplePay_Stammdaten.edmx">
+    <EntityDeploy Include="Models\SimplePay_StammdatenEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SimplePay_Stammdaten.Designer.cs</LastGenOutput>
+      <LastGenOutput>SimplePay_StammdatenEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SimplePay_Stammdaten.Context.tt">
+    <Content Include="Models\SimplePay_StammdatenEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
-      <LastGenOutput>SimplePay_Stammdaten.Context.cs</LastGenOutput>
+      <DependentUpon>SimplePay_StammdatenEntities.edmx</DependentUpon>
+      <LastGenOutput>SimplePay_StammdatenEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SimplePay_Stammdaten.edmx.diagram">
-      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
+    <Content Include="Models\SimplePay_StammdatenEntities.edmx.diagram">
+      <DependentUpon>SimplePay_StammdatenEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\SimplePay_Stammdaten.tt">
+    <Content Include="Models\SimplePay_StammdatenEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SimplePay_Stammdaten.edmx</DependentUpon>
-      <LastGenOutput>SimplePay_Stammdaten.cs</LastGenOutput>
+      <DependentUpon>SimplePay_StammdatenEntities.edmx</DependentUpon>
+      <LastGenOutput>SimplePay_StammdatenEntities.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
