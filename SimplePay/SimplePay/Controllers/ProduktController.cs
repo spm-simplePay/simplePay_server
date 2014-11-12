@@ -18,10 +18,23 @@ namespace SimplePay.Controllers
         }
 
         // GET api/produkt/5
-        public string Get(int id)
+        public IEnumerable<Produkt> Get(int id)
         {
-            return "value";
+            //Kategorie kategorie = db.Kategorie.Find(id);
+
+            return db.Produkt.ToList();
+           
+            //List<Produkt> produkte =
+            //foreach (Produkt produkt in produkte)
+            //{
+            //    int produkt_kategorie = produkt.p_id;
+            //    db.Produkt_Kategorie.
+            //}
+            
+
+            
         }
+
 
         // POST api/produkt
         public void Post([FromBody]string value)
