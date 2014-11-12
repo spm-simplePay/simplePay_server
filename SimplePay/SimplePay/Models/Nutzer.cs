@@ -26,7 +26,8 @@ namespace SimplePay.Models
         public Nullable<System.DateTime> geaendert_am { get; set; }
         public int a_id { get; set; }
         public int na_id { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Adresse Adresse { get; set; }
         [JsonIgnore]
         public virtual Nutzerart Nutzerart { get; set; }

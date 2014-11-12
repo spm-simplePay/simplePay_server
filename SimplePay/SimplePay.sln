@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePay", "SimplePay\SimplePay.csproj", "{803DBAC2-EE47-4E29-B1BB-9AE3207097F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePay.Tests", "SimplePay.Tests\SimplePay.Tests.csproj", "{BB140C35-7603-402A-B5D4-7130A74CE219}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{803DBAC2-EE47-4E29-B1BB-9AE3207097F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{803DBAC2-EE47-4E29-B1BB-9AE3207097F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{803DBAC2-EE47-4E29-B1BB-9AE3207097F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB140C35-7603-402A-B5D4-7130A74CE219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB140C35-7603-402A-B5D4-7130A74CE219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB140C35-7603-402A-B5D4-7130A74CE219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB140C35-7603-402A-B5D4-7130A74CE219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
