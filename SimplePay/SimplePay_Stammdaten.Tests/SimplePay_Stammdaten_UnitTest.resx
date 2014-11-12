@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="SqlTest1_TestAction.SqlScript" xml:space="preserve">
+  <data name="TableCountStammdaten_TestAction.SqlScript" xml:space="preserve">
     <value>/*
 Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
 auszuführen.
@@ -128,8 +128,85 @@ eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
 Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
 ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
 */
+SELECT * FROM INFORMATION_SCHEMA.Tables;</value>
+  </data>
+  <data name="ColumnCountAdresse_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
 
-SELECT * FROM Produkt;</value>
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Adresse';</value>
+  </data>
+  <data name="ColumnCountHaendler_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Haendler';</value>
+  </data>
+  <data name="ColumnCountHaendlerart_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Haendlerart';</value>
+  </data>
+  <data name="ColumnCountNutzer_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Nutzer';</value>
+  </data>
+  <data name="ColumnCountNutzerart_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Nutzerart';</value>
+  </data>
+  <data name="ColumnCountProvision_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Provision';</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
