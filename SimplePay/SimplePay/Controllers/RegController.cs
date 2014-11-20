@@ -15,6 +15,7 @@ namespace SimplePay.Controllers
         // GET api/reg
         public IEnumerable<Nutzer> Get()
         {
+            //testkommentar
             return db_s.Nutzer.ToList();
         }
 
