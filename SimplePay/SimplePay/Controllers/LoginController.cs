@@ -7,12 +7,14 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Security.Cryptography;
 
+
 namespace SimplePay.Controllers
 {
     public class LoginController : ApiController
     {
 
         SimplePay_StammdatenEntities db_s = new SimplePay_StammdatenEntities();
+        MD5CryptoServiceProvider cryptoService = new MD5CryptoServiceProvider();
 
         // GET api/login
         public IEnumerable<string> Get()
@@ -21,13 +23,17 @@ namespace SimplePay.Controllers
         }
 
         // GET api/login/5
-        public Nutzer Get(Nutzer nutzer)
+        public Nutzer Get(int id)
         {
+            Nutzer nutzer = db_s.Nutzer.Find(id);
 
-            int nutzer_id = nutzer.n_id;
-            byte[] nutzer_pw = nutzer.passwort;
-
-            return nutzer;
+            Nutzer loginNutzer = new Nutzer();
+            loginNutzer.n_id = nutzer.n_id;
+            loginNutzer.a_id = nutzer.a_id;
+            loginNutzer.eingetragen_am = nutzer.eingetragen_am;
+            loginNutzer.email = nutzer.email;
+            loginNutzer.passwort = nutzer.passwort;
+            return loginNutzer;
 
         }
 
