@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Security.Cryptography;
 
 namespace SimplePay.Controllers
 {
@@ -22,6 +23,7 @@ namespace SimplePay.Controllers
         // GET api/login/5
         public Nutzer Get(Nutzer nutzer)
         {
+
             int nutzer_id = nutzer.n_id;
             byte[] nutzer_pw = nutzer.passwort;
 
