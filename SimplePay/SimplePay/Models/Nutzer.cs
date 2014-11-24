@@ -9,7 +9,6 @@
 
 namespace SimplePay.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,16 +19,14 @@ namespace SimplePay.Models
         public string nachname { get; set; }
         public System.DateTime geburtstag { get; set; }
         public string email { get; set; }
-        public byte[] passwort { get; set; }
-        public byte[] paypin { get; set; }
+        public string passwort { get; set; }
+        public string paypin { get; set; }
         public System.DateTime eingetragen_am { get; set; }
         public Nullable<System.DateTime> geaendert_am { get; set; }
         public int a_id { get; set; }
         public int na_id { get; set; }
-
-
+    
         public virtual Adresse Adresse { get; set; }
-        [JsonIgnore]
         public virtual Nutzerart Nutzerart { get; set; }
     }
 }

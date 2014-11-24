@@ -44,8 +44,8 @@
           <Property Name="nachname" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="geburtstag" Type="date" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="passwort" Type="varbinary" MaxLength="50" Nullable="false" />
-          <Property Name="paypin" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="passwort" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="paypin" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="eingetragen_am" Type="date" Nullable="false" />
           <Property Name="geaendert_am" Type="datetime" />
           <Property Name="a_id" Type="int" Nullable="false" />
@@ -210,8 +210,8 @@
           <Property Name="nachname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="geburtstag" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="passwort" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
-          <Property Name="paypin" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="passwort" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paypin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="geaendert_am" Type="DateTime" Precision="3" />
           <Property Name="a_id" Type="Int32" Nullable="false" />
