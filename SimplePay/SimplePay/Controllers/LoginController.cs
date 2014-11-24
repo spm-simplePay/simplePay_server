@@ -17,9 +17,9 @@ namespace SimplePay.Controllers
         MD5CryptoServiceProvider cryptoService = new MD5CryptoServiceProvider();
 
         // GET api/login
-        public IEnumerable<string> Get()
+        public IEnumerable<Nutzer> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db_s.Nutzer.ToList();
         }
 
         // GET api/login/5
@@ -38,8 +38,21 @@ namespace SimplePay.Controllers
         }
 
         // POST api/login
-        public void Post([FromBody]string value)
+        public Nutzer Post([FromBody]LoginData value)
         {
+            Nutzer nutzerCheck = db_s.Nutzer.SingleOrDefault(n => n.email == value.email);
+
+            if (nutzerCheck != null)
+            {
+                if (value.password == nutzerCheck.passwort) 
+                    return nutzerCheck;
+                
+                else
+                    return null;
+
+            }
+            else
+                return null;
         }
 
         // PUT api/login/5
