@@ -9,6 +9,7 @@
 
 namespace SimplePay.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -28,6 +29,7 @@ namespace SimplePay.Models
         public Nullable<System.DateTime> geaendert_am { get; set; }
     
         public virtual ICollection<Haendler> Haendler { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Nutzer> Nutzer { get; set; }
     }
 }
