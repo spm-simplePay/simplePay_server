@@ -27,6 +27,7 @@ namespace SimplePay.Models
         public int plz { get; set; }
         public string ort { get; set; }
         public Nullable<System.DateTime> geaendert_am { get; set; }
+        //test2
         //gut gemacht
         [JsonIgnore]
         public virtual ICollection<Haendler> Haendler { get; set; }
