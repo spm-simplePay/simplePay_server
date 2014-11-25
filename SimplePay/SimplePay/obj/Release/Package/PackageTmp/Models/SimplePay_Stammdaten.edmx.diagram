@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5c2de146a9084dfa892f70a697bdb18e" Name="Diagram1">
+      <Diagram DiagramId="e3fa25e693034ad4b23f50256e83d065" Name="Diagram1">
         <EntityTypeShape EntityType="SimplePay_StammdatenModel.Adresse" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SimplePay_StammdatenModel.Haendler" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SimplePay_StammdatenModel.Haendlerart" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
