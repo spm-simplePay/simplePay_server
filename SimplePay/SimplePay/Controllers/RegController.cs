@@ -47,13 +47,6 @@ namespace SimplePay.Controllers
                 }
                 catch(DbEntityValidationException ex)
                 {
-                    //String error = "";
-                    //IEnumerable<DbEntityValidationResult> validationList = ex.EntityValidationErrors;
-                    //foreach (DbEntityValidationResult result in validationList)
-                    //{
-                    //    error = " "+result.ToString();
-                    //}
-
                     KeyValuePair<int, string> keyValuePairUnknownProblem = new KeyValuePair<int, string>(1, "Beim Anlegen der Adresse sind Probleme aufgetreten! Die Daten konnten nicht validiert werden. Bitte prüfen Sie nochmals ihre eingegebenen Adressdaten!");
                     return keyValuePairUnknownProblem;
                 }
@@ -78,13 +71,6 @@ namespace SimplePay.Controllers
                 }
                 catch (DbEntityValidationException ex)
                 {
-                    //String error = "";
-                    //IEnumerable<DbEntityValidationResult> validationList = ex.EntityValidationErrors;
-                    //foreach (DbEntityValidationResult result in validationList)
-                    //{
-                    //    error = " " + result.ToString();
-                    //}
-
                     KeyValuePair<int, string> keyValuePairValidationProblem = new KeyValuePair<int, string>(1, "Beim Anlegen des Nutzers sind Probleme aufgetreten! Die Daten konnten nicht validiert werden. Bitte prüfen Sie nochmals ihre eingegebenen persönlichen Daten!");
                     return keyValuePairValidationProblem;
                 }
@@ -102,7 +88,6 @@ namespace SimplePay.Controllers
                 KeyValuePair<int, string> keyValuePairEMailNotUnique = new KeyValuePair<int, string>(2, "Diese E-Mail-Adresse ist bereits vergeben. Es kann kein weiterer Nutzer mit dieser E-Mail-Adresse angelegt werden.");
                 return keyValuePairEMailNotUnique;
             }
-
         }
 
 

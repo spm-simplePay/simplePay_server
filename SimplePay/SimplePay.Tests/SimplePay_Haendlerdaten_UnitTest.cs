@@ -394,7 +394,7 @@ namespace SimplePay.Tests
             rowCountCondition1.Enabled = true;
             rowCountCondition1.Name = "rowCountCondition1";
             rowCountCondition1.ResultSet = 1;
-            rowCountCondition1.RowCount = 14;
+            rowCountCondition1.RowCount = 16;
             // 
             // ColumnCountProdukt_TestAction
             // 
