@@ -9,6 +9,7 @@ namespace SimplePay.Controllers
     public class HomeController : Controller
     {
         //test
+        //test2
         public ActionResult Index()
         {
             return View();
