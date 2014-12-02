@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 //using System.Security.Cryptography;
 using System.Data.Entity.Validation;
+using System.Data.Entity.Infrastructure;
 
 namespace SimplePay.Controllers
 {
@@ -50,6 +51,11 @@ namespace SimplePay.Controllers
                     KeyValuePair<int, string> keyValuePairUnknownProblem = new KeyValuePair<int, string>(1, "Beim Anlegen der Adresse sind Probleme aufgetreten! Die Daten konnten nicht validiert werden. Bitte prüfen Sie nochmals ihre eingegebenen Adressdaten!");
                     return keyValuePairUnknownProblem;
                 }
+                catch (DbUpdateException updateEx)
+                {
+                    KeyValuePair<int, string> keyValuePairValidationProblem = new KeyValuePair<int, string>(1, "Beim Anlegen der Adresse sind Probleme aufgetreten! Die Daten konnten nicht validiert werden. Bitte prüfen Sie nochmals ihre eingegebenen Adressdaten!");
+                    return keyValuePairValidationProblem;
+                }
                 catch
                 {
                     KeyValuePair<int, string> keyValuePairUnknownProblem = new KeyValuePair<int, string>(3, "Beim Anlegen der Adresse sind unbekannte Probleme aufgetreten! Bitte wenden Sie sich an support@simplepay.de");
@@ -69,13 +75,19 @@ namespace SimplePay.Controllers
                     db_s.Nutzer.Add(nutzer);
                     db_s.SaveChanges();
                 }
-                catch (DbEntityValidationException ex)
+                catch (DbEntityValidationException validationEx)
+                {
+                    KeyValuePair<int, string> keyValuePairValidationProblem = new KeyValuePair<int, string>(1, "Beim Anlegen des Nutzers sind Probleme aufgetreten! Die Daten konnten nicht validiert werden. Bitte prüfen Sie nochmals ihre eingegebenen persönlichen Daten!");
+                    return keyValuePairValidationProblem;
+                }
+                catch (DbUpdateException updateEx)
                 {
                     KeyValuePair<int, string> keyValuePairValidationProblem = new KeyValuePair<int, string>(1, "Beim Anlegen des Nutzers sind Probleme aufgetreten! Die Daten konnten nicht validiert werden. Bitte prüfen Sie nochmals ihre eingegebenen persönlichen Daten!");
                     return keyValuePairValidationProblem;
                 }
                 catch
                 {
+                    
                     KeyValuePair<int, string> keyValuePairUnknownProblem = new KeyValuePair<int, string>(3, "Beim Anlegen des Nutzers sind unbekannte Probleme aufgetreten! Bitte wenden Sie sich an support@simplepay.de");
                     return keyValuePairUnknownProblem;
                 }
