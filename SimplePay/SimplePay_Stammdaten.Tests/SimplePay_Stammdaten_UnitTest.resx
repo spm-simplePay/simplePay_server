@@ -208,6 +208,45 @@ ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
 */
 SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Provision';</value>
   </data>
+  <data name="ConstraintFroeignKeyCount_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM SimplePay_Stammdaten.INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE='FOREIGN KEY';</value>
+  </data>
+  <data name="ConstraintUniqueCount_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM SimplePay_Stammdaten.INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE='UNIQUE';</value>
+  </data>
+  <data name="ConstraintCheckCount_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM SimplePay_Stammdaten.INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE='CHECK';</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
