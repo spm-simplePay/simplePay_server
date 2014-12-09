@@ -11,6 +11,8 @@ namespace SimplePay.Models
 {
     using System;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
+    
     
     public partial class Bestellung
     {
@@ -29,10 +31,14 @@ namespace SimplePay.Models
         public int kt_id { get; set; }
     
         public virtual ICollection<Bestellposition> Bestellposition { get; set; }
+        [JsonIgnore]
         public virtual Kunde Kunde { get; set; }
         public virtual Kunde_Tisch Kunde_Tisch { get; set; }
+        [JsonIgnore]
         public virtual Mitarbeiter Mitarbeiter { get; set; }
+        [JsonIgnore]
         public virtual MwSt_Satz MwSt_Satz { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Rechnung> Rechnung { get; set; }
     }
 }

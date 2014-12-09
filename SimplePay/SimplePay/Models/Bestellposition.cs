@@ -11,6 +11,7 @@ namespace SimplePay.Models
 {
     using System;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
     
     public partial class Bestellposition
     {
@@ -21,6 +22,7 @@ namespace SimplePay.Models
         public int p_id { get; set; }
         public int b_id { get; set; }
     
+        [JsonIgnore]
         public virtual Bestellung Bestellung { get; set; }
         public virtual Produkt Produkt { get; set; }
     }
