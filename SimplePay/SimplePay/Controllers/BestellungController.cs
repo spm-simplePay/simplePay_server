@@ -29,6 +29,24 @@ namespace SimplePay.Controllers
         // POST api/bestellung
         public void Post(Bestellung bestellung)
         {
+            db.Kunde_Tisch.Add(bestellung.Kunde_Tisch);
+            bestellung.kt_id = bestellung.Kunde_Tisch.kt_id;
+           
+            bestellung.m_id = 1;
+            bestellung.datum = System.DateTime.Now;
+            bestellung.uhrzeit = System.DateTime.Now.TimeOfDay;
+            
+            IEnumerable<Bestellposition> bestellpositionen = bestellung.Bestellposition;
+            foreach (Bestellposition bestellposition in bestellpositionen)
+            {
+                bestellposition.b_id = bestellung.b_id;
+                bestellposition.datum = System.DateTime.Now;
+                bestellposition.uhrzeit = System.DateTime.Now.TimeOfDay;
+            }
+
+            db.Bestellung.Add(bestellung);
+            db.SaveChanges();
+                
         }
 
         // PUT api/bestellung/5

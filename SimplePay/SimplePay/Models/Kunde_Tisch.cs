@@ -24,10 +24,10 @@ namespace SimplePay.Models
         public int t_id { get; set; }
         public int k_id { get; set; }
 
-        [JsonIgnore]
         public virtual ICollection<Bestellung> Bestellung { get; set; }
         [JsonIgnore]
         public virtual Kunde Kunde { get; set; }
+        [JsonIgnore]
         public virtual Tisch Tisch { get; set; }
     }
 }
