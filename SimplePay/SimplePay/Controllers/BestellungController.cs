@@ -27,7 +27,7 @@ namespace SimplePay.Controllers
         }
 
         // POST api/bestellung
-        public void Post(Bestellung bestellung)
+        public Bestellung Post(Bestellung bestellung)
         {
             db.Kunde_Tisch.Add(bestellung.Kunde_Tisch);
             bestellung.kt_id = bestellung.Kunde_Tisch.kt_id;
@@ -46,8 +46,15 @@ namespace SimplePay.Controllers
 
             db.Bestellung.Add(bestellung);
             db.SaveChanges();
-                
+
+            foreach (Bestellposition bestellposition in bestellpositionen)
+            {
+                bestellposition.Produkt = db.Produkt.Find(bestellposition.p_id);
+            }
+
+            return bestellung;             
         }
+
 
         // PUT api/bestellung/5
         public void Put(int id, [FromBody]string value)
