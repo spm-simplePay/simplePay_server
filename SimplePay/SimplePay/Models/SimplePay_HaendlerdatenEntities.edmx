@@ -119,6 +119,22 @@
           <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
           <Property Name="eingetragen_am" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="Tagesangebot">
+          <Key>
+            <PropertyRef Name="ta_id" />
+          </Key>
+          <Property Name="ta_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="preis" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tagesangebot_Produkt">
+          <Key>
+            <PropertyRef Name="tap_id" />
+          </Key>
+          <Property Name="tap_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ta_id" Type="int" Nullable="false" />
+          <Property Name="p_id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Tisch">
           <Key>
             <PropertyRef Name="t_id" />
@@ -304,6 +320,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tagesangebot_Produkt_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Tagesangebot_Produkt" Type="Self.Tagesangebot_Produkt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Tagesangebot_Produkt">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tagesangebot_Produkt_Tagesangebot">
+          <End Role="Tagesangebot" Type="Self.Tagesangebot" Multiplicity="1" />
+          <End Role="Tagesangebot_Produkt" Type="Self.Tagesangebot_Produkt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tagesangebot">
+              <PropertyRef Name="ta_id" />
+            </Principal>
+            <Dependent Role="Tagesangebot_Produkt">
+              <PropertyRef Name="ta_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SimplePay_HaendlerdatenModelStoreContainer">
           <EntitySet Name="Bestellposition" EntityType="Self.Bestellposition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bestellung" EntityType="Self.Bestellung" Schema="dbo" store:Type="Tables" />
@@ -317,6 +357,8 @@
           <EntitySet Name="Produkt_Zusatz" EntityType="Self.Produkt_Zusatz" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rechnung" EntityType="Self.Rechnung" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rolle" EntityType="Self.Rolle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tagesangebot" EntityType="Self.Tagesangebot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tagesangebot_Produkt" EntityType="Self.Tagesangebot_Produkt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tisch" EntityType="Self.Tisch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zusatz" EntityType="Self.Zusatz" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Bestellposition_Bestellung" Association="Self.FK_Bestellposition_Bestellung">
@@ -374,6 +416,14 @@
           <AssociationSet Name="FK_Rechnung_Bestellung" Association="Self.FK_Rechnung_Bestellung">
             <End Role="Bestellung" EntitySet="Bestellung" />
             <End Role="Rechnung" EntitySet="Rechnung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tagesangebot_Produkt_Produkt" Association="Self.FK_Tagesangebot_Produkt_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Tagesangebot_Produkt" EntitySet="Tagesangebot_Produkt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tagesangebot_Produkt_Tagesangebot" Association="Self.FK_Tagesangebot_Produkt_Tagesangebot">
+            <End Role="Tagesangebot" EntitySet="Tagesangebot" />
+            <End Role="Tagesangebot_Produkt" EntitySet="Tagesangebot_Produkt" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -480,6 +530,7 @@
           <NavigationProperty Name="Bestellposition" Relationship="Self.FK_Bestellposition_Produkt" FromRole="Produkt" ToRole="Bestellposition" />
           <NavigationProperty Name="Produkt_Kategorie" Relationship="Self.FK_Produkt_Kategorie_Produkt" FromRole="Produkt" ToRole="Produkt_Kategorie" />
           <NavigationProperty Name="Produkt_Zusatz" Relationship="Self.FK_Produkt_Zusatz_Produkt" FromRole="Produkt" ToRole="Produkt_Zusatz" />
+          <NavigationProperty Name="Tagesangebot_Produkt" Relationship="Self.FK_Tagesangebot_Produkt_Produkt" FromRole="Produkt" ToRole="Tagesangebot_Produkt" />
         </EntityType>
         <EntityType Name="Produkt_Kategorie">
           <Key>
@@ -520,6 +571,25 @@
           <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Mitarbeiter" Relationship="Self.FK_Mitarbeiter_Rolle" FromRole="Rolle" ToRole="Mitarbeiter" />
+        </EntityType>
+        <EntityType Name="Tagesangebot">
+          <Key>
+            <PropertyRef Name="ta_id" />
+          </Key>
+          <Property Name="ta_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bezeichnung" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="preis" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Tagesangebot_Produkt" Relationship="Self.FK_Tagesangebot_Produkt_Tagesangebot" FromRole="Tagesangebot" ToRole="Tagesangebot_Produkt" />
+        </EntityType>
+        <EntityType Name="Tagesangebot_Produkt">
+          <Key>
+            <PropertyRef Name="tap_id" />
+          </Key>
+          <Property Name="tap_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ta_id" Type="Int32" Nullable="false" />
+          <Property Name="p_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produkt" Relationship="Self.FK_Tagesangebot_Produkt_Produkt" FromRole="Tagesangebot_Produkt" ToRole="Produkt" />
+          <NavigationProperty Name="Tagesangebot" Relationship="Self.FK_Tagesangebot_Produkt_Tagesangebot" FromRole="Tagesangebot_Produkt" ToRole="Tagesangebot" />
         </EntityType>
         <EntityType Name="Tisch">
           <Key>
@@ -696,6 +766,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tagesangebot_Produkt_Produkt">
+          <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+          <End Role="Tagesangebot_Produkt" Type="Self.Tagesangebot_Produkt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produkt">
+              <PropertyRef Name="p_id" />
+            </Principal>
+            <Dependent Role="Tagesangebot_Produkt">
+              <PropertyRef Name="p_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Produkt_Zusatz_Zusatz">
           <End Role="Zusatz" Type="Self.Zusatz" Multiplicity="1" />
           <End Role="Produkt_Zusatz" Type="Self.Produkt_Zusatz" Multiplicity="*" />
@@ -705,6 +787,18 @@
             </Principal>
             <Dependent Role="Produkt_Zusatz">
               <PropertyRef Name="z_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tagesangebot_Produkt_Tagesangebot">
+          <End Role="Tagesangebot" Type="Self.Tagesangebot" Multiplicity="1" />
+          <End Role="Tagesangebot_Produkt" Type="Self.Tagesangebot_Produkt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tagesangebot">
+              <PropertyRef Name="ta_id" />
+            </Principal>
+            <Dependent Role="Tagesangebot_Produkt">
+              <PropertyRef Name="ta_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -721,6 +815,8 @@
           <EntitySet Name="Produkt_Zusatz" EntityType="Self.Produkt_Zusatz" />
           <EntitySet Name="Rechnung" EntityType="Self.Rechnung" />
           <EntitySet Name="Rolle" EntityType="Self.Rolle" />
+          <EntitySet Name="Tagesangebot" EntityType="Self.Tagesangebot" />
+          <EntitySet Name="Tagesangebot_Produkt" EntityType="Self.Tagesangebot_Produkt" />
           <EntitySet Name="Tisch" EntityType="Self.Tisch" />
           <EntitySet Name="Zusatz" EntityType="Self.Zusatz" />
           <AssociationSet Name="FK_Bestellposition_Bestellung" Association="Self.FK_Bestellposition_Bestellung">
@@ -775,9 +871,17 @@
             <End Role="Produkt" EntitySet="Produkt" />
             <End Role="Produkt_Zusatz" EntitySet="Produkt_Zusatz" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tagesangebot_Produkt_Produkt" Association="Self.FK_Tagesangebot_Produkt_Produkt">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Tagesangebot_Produkt" EntitySet="Tagesangebot_Produkt" />
+          </AssociationSet>
           <AssociationSet Name="FK_Produkt_Zusatz_Zusatz" Association="Self.FK_Produkt_Zusatz_Zusatz">
             <End Role="Zusatz" EntitySet="Zusatz" />
             <End Role="Produkt_Zusatz" EntitySet="Produkt_Zusatz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tagesangebot_Produkt_Tagesangebot" Association="Self.FK_Tagesangebot_Produkt_Tagesangebot">
+            <End Role="Tagesangebot" EntitySet="Tagesangebot" />
+            <End Role="Tagesangebot_Produkt" EntitySet="Tagesangebot_Produkt" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -909,6 +1013,24 @@
                 <ScalarProperty Name="ro_id" ColumnName="ro_id" />
                 <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
                 <ScalarProperty Name="eingetragen_am" ColumnName="eingetragen_am" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tagesangebot">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Tagesangebot">
+              <MappingFragment StoreEntitySet="Tagesangebot">
+                <ScalarProperty Name="ta_id" ColumnName="ta_id" />
+                <ScalarProperty Name="bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="preis" ColumnName="preis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tagesangebot_Produkt">
+            <EntityTypeMapping TypeName="SimplePay_HaendlerdatenModel.Tagesangebot_Produkt">
+              <MappingFragment StoreEntitySet="Tagesangebot_Produkt">
+                <ScalarProperty Name="tap_id" ColumnName="tap_id" />
+                <ScalarProperty Name="ta_id" ColumnName="ta_id" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

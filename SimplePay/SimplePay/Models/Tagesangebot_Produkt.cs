@@ -13,20 +13,14 @@ namespace SimplePay.Models
     using System.Collections.Generic;
     using Newtonsoft.Json;
     
-    public partial class Kunde_Tisch
+    public partial class Tagesangebot_Produkt
     {
-        public Kunde_Tisch()
-        {
-            this.Bestellung = new HashSet<Bestellung>();
-        }
+        public int tap_id { get; set; }
+        public int ta_id { get; set; }
+        public int p_id { get; set; }
     
-        public int kt_id { get; set; }
-        public int t_id { get; set; }
-        public int k_id { get; set; }
-    
+        public virtual Produkt Produkt { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Bestellung> Bestellung { get; set; }
-        public virtual Kunde Kunde { get; set; }
-        public virtual Tisch Tisch { get; set; }
+        public virtual Tagesangebot Tagesangebot { get; set; }
     }
 }

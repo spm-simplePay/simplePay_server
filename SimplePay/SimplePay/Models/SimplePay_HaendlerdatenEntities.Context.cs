@@ -37,6 +37,8 @@ namespace SimplePay.Models
         public DbSet<Produkt_Zusatz> Produkt_Zusatz { get; set; }
         public DbSet<Rechnung> Rechnung { get; set; }
         public DbSet<Rolle> Rolle { get; set; }
+        public DbSet<Tagesangebot> Tagesangebot { get; set; }
+        public DbSet<Tagesangebot_Produkt> Tagesangebot_Produkt { get; set; }
         public DbSet<Tisch> Tisch { get; set; }
         public DbSet<Zusatz> Zusatz { get; set; }
     }
