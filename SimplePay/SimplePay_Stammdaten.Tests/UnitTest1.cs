@@ -93,5 +93,26 @@ namespace SimplePay_Stammdaten.Tests
             }
 
         }
+
+        /*
+        *Diese Testmethode prüft die Registrierung 
+        */
+        [TestMethod]
+        public void User_Login()
+        {
+            LoginData logindata = new LoginData();
+            logindata.email = "kunde@simplepay.com";
+            logindata.password = "123";
+
+            
+
+            LoginController logincontroller = new LoginController();
+            Nutzer nutzer = logincontroller.Post(logindata);
+
+            if(nutzer == null){
+                throw new Exception();
+            }
+        }
+
     }
 }
