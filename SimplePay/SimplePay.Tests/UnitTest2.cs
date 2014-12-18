@@ -46,9 +46,21 @@ namespace SimplePay.Tests
             {
                 throw new Exception();
             }
-
-
-
         }
+
+        /*
+        * Diese Testmethode prüft die Abfrage der Tagesangebote
+        */
+        [TestMethod]
+        public void Get_Tagesangebot()
+        {
+            TagesangebotController tagesangebotController = new TagesangebotController();
+            IEnumerable<Tagesangebot> tagesangebote = tagesangebotController.Get();
+            if (tagesangebote == null)
+            {
+                throw new Exception();
+            }
+        }
+
     }
 }
