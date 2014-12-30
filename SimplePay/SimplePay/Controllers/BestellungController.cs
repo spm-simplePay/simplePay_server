@@ -29,12 +29,14 @@ namespace SimplePay.Controllers
         // POST api/bestellung
         public Bestellung Post(Bestellung bestellung)
         {
+
             db.Kunde_Tisch.Add(bestellung.Kunde_Tisch);
             bestellung.kt_id = bestellung.Kunde_Tisch.kt_id;
-           
-            bestellung.m_id = 1;
+
+            bestellung.m_id = getMitarbeiterID();
             bestellung.datum = System.DateTime.Now;
             bestellung.uhrzeit = System.DateTime.Now.TimeOfDay;
+
             
             IEnumerable<Bestellposition> bestellpositionen = bestellung.Bestellposition;
             foreach (Bestellposition bestellposition in bestellpositionen)
@@ -65,5 +67,31 @@ namespace SimplePay.Controllers
         public void Delete(int id)
         {
         }
+
+        //sucht freien Mitarbeiter
+        public int getMitarbeiterID()
+        {
+
+            int menge = 1000000000;
+            int id = 1;
+            IEnumerable<Mitarbeiter> mitarbeiterAlle = db.Mitarbeiter;
+            foreach (Mitarbeiter mitarbeiter in mitarbeiterAlle)
+            {
+                if (mitarbeiter.ro_id == 1)
+                {
+    
+                    if (db.Bestellung.Count<Bestellung>(a => a.m_id == mitarbeiter.m_id) < menge)
+                    {
+                        
+                        menge = db.Bestellung.Count<Bestellung>(a => a.m_id == id);
+                        id = mitarbeiter.m_id;
+                    }
+                }
+            }
+
+            return id;
+
+        }
+
     }
 }
