@@ -75,11 +75,12 @@ namespace SimplePay.Controllers
         private int holeMitarbeiterID()
         {
 
-            int menge = 1000000000;
+            int menge = Int32.MaxValue;
             int id = 1;
             IEnumerable<Mitarbeiter> mitarbeiterAlle = db.Mitarbeiter;
             foreach (Mitarbeiter mitarbeiter in mitarbeiterAlle)
             {
+
                 if (mitarbeiter.ro_id == 1)
                 {
     
