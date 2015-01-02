@@ -45,6 +45,16 @@ namespace SimplePay.Controllers
                 bestellposition.datum = System.DateTime.Now;
                 bestellposition.uhrzeit = System.DateTime.Now.TimeOfDay;
             }
+            Kunde kunde = db.Kunde.Find(bestellung.k_id);
+
+            if(kunde == null)
+            {
+                Kunde neuerKunde = new Kunde();
+                neuerKunde.k_id = bestellung.k_id;
+                neuerKunde.eingetragen_am = System.DateTime.Now;
+                db.Kunde.Add(neuerKunde);
+
+            }
 
             db.Bestellung.Add(bestellung);
             db.SaveChanges();
