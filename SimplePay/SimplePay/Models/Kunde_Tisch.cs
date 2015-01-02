@@ -26,7 +26,9 @@ namespace SimplePay.Models
     
         [JsonIgnore]
         public virtual ICollection<Bestellung> Bestellung { get; set; }
+        [JsonIgnore]
         public virtual Kunde Kunde { get; set; }
+        [JsonIgnore]
         public virtual Tisch Tisch { get; set; }
     }
 }

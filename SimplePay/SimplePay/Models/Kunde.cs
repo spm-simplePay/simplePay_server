@@ -11,6 +11,7 @@ namespace SimplePay.Models
 {
     using System;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
     
     public partial class Kunde
     {
@@ -22,7 +23,7 @@ namespace SimplePay.Models
     
         public int k_id { get; set; }
         public System.DateTime eingetragen_am { get; set; }
-    
+
         public virtual ICollection<Bestellung> Bestellung { get; set; }
         public virtual ICollection<Kunde_Tisch> Kunde_Tisch { get; set; }
     }

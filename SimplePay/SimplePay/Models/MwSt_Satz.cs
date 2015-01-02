@@ -11,6 +11,7 @@ namespace SimplePay.Models
 {
     using System;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
     
     public partial class MwSt_Satz
     {
@@ -24,6 +25,7 @@ namespace SimplePay.Models
         public System.DateTime eingetragen_am { get; set; }
         public Nullable<System.DateTime> geaendert_am { get; set; }
     
+        [JsonIgnore]
         public virtual ICollection<Bestellung> Bestellung { get; set; }
     }
 }

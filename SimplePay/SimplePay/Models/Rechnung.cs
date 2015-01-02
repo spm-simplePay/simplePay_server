@@ -11,6 +11,7 @@ namespace SimplePay.Models
 {
     using System;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
     
     public partial class Rechnung
     {
@@ -20,6 +21,7 @@ namespace SimplePay.Models
         public bool bezahlt { get; set; }
         public int b_id { get; set; }
     
+        [JsonIgnore]
         public virtual Bestellung Bestellung { get; set; }
     }
 }

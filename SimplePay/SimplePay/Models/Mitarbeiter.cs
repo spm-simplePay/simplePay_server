@@ -11,6 +11,7 @@ namespace SimplePay.Models
 {
     using System;
     using System.Collections.Generic;
+    using Newtonsoft.Json;
     
     public partial class Mitarbeiter
     {
@@ -28,6 +29,7 @@ namespace SimplePay.Models
         public Nullable<System.DateTime> geaendert_am { get; set; }
         public int ro_id { get; set; }
     
+        [JsonIgnore]
         public virtual ICollection<Bestellung> Bestellung { get; set; }
         public virtual Rolle Rolle { get; set; }
     }
