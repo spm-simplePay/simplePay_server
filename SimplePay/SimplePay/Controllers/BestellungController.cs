@@ -33,7 +33,7 @@ namespace SimplePay.Controllers
             db.Kunde_Tisch.Add(bestellung.Kunde_Tisch);
             bestellung.kt_id = bestellung.Kunde_Tisch.kt_id;
 
-            bestellung.m_id = getMitarbeiterID();
+            bestellung.m_id = holeMitarbeiterID();
             bestellung.datum = System.DateTime.Now;
             bestellung.uhrzeit = System.DateTime.Now.TimeOfDay;
 
@@ -54,6 +54,9 @@ namespace SimplePay.Controllers
                 bestellposition.Produkt = db.Produkt.Find(bestellposition.p_id);
             }
 
+            speicherRechnung(bestellung.b_id);
+
+
             return bestellung;             
         }
 
@@ -69,7 +72,7 @@ namespace SimplePay.Controllers
         }
 
         //sucht freien Mitarbeiter
-        public int getMitarbeiterID()
+        private int holeMitarbeiterID()
         {
 
             int menge = 1000000000;
@@ -91,6 +94,20 @@ namespace SimplePay.Controllers
 
             return id;
 
+        }
+
+        //anlegen und speichern einer Rechnung zur Bestellung
+        private void speicherRechnung(int b_id)
+        {
+            Rechnung rechnung = new Rechnung();
+            rechnung.b_id = b_id;
+            rechnung.bezahlt = true;
+            rechnung.datum = System.DateTime.Now;
+            rechnung.uhrzeit = System.DateTime.Now.TimeOfDay;
+
+            db.Rechnung.Add(rechnung);
+            db.SaveChanges();
+    
         }
 
     }
