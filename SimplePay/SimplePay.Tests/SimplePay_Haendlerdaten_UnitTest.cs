@@ -301,6 +301,24 @@ namespace SimplePay.Tests
             System.Diagnostics.Trace.WriteLineIf((testActions.PosttestAction != null), "Nachtest-Skript wird ausgeführt...");
             SqlExecutionResult[] posttestResults = TestService.Execute(this.PrivilegedContext, this.PrivilegedContext, testActions.PosttestAction);
         }
+        [TestMethod()]
+        public void DatabaseTest1()
+        {
+            SqlDatabaseTestActions testActions = this.DatabaseTest1Data;
+            // Skript für Vortest ausführen
+            // 
+            System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Vortest-Skript wird ausgeführt...");
+            SqlExecutionResult[] pretestResults = TestService.Execute(this.PrivilegedContext, this.PrivilegedContext, testActions.PretestAction);
+            // Testskript ausführen
+            // 
+            System.Diagnostics.Trace.WriteLineIf((testActions.TestAction != null), "Test-Skript wird ausgeführt...");
+            SqlExecutionResult[] testResults = TestService.Execute(this.ExecutionContext, this.PrivilegedContext, testActions.TestAction);
+            // Skript für Nachtest ausführen
+            // 
+            System.Diagnostics.Trace.WriteLineIf((testActions.PosttestAction != null), "Nachtest-Skript wird ausgeführt...");
+            SqlExecutionResult[] posttestResults = TestService.Execute(this.PrivilegedContext, this.PrivilegedContext, testActions.PosttestAction);
+        }
+
 
 
 
@@ -360,6 +378,8 @@ namespace SimplePay.Tests
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition rowCountCondition16;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction ContraintsForeignKeyCount_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition rowCountCondition17;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction DatabaseTest1_TestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition rowCountCondition18;
             this.TableCountHaendlerdatenData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.ColumnCountProduktData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.ColumnCountBestellpositionData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
@@ -376,6 +396,7 @@ namespace SimplePay.Tests
             this.ColumnCountTischData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.ColumnCountZusatzData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.ContraintsForeignKeyCountData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            this.DatabaseTest1Data = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             TableCountHaendlerdaten_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             rowCountCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             ColumnCountProdukt_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
@@ -410,6 +431,8 @@ namespace SimplePay.Tests
             rowCountCondition16 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             ContraintsForeignKeyCount_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             rowCountCondition17 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
+            DatabaseTest1_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            rowCountCondition18 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             // 
             // TableCountHaendlerdaten_TestAction
             // 
@@ -591,6 +614,30 @@ namespace SimplePay.Tests
             rowCountCondition15.ResultSet = 1;
             rowCountCondition15.RowCount = 4;
             // 
+            // testInitializeAction
+            // 
+            testInitializeAction.Conditions.Add(rowCountCondition16);
+            resources.ApplyResources(testInitializeAction, "testInitializeAction");
+            // 
+            // rowCountCondition16
+            // 
+            rowCountCondition16.Enabled = true;
+            rowCountCondition16.Name = "rowCountCondition16";
+            rowCountCondition16.ResultSet = 1;
+            rowCountCondition16.RowCount = 16;
+            // 
+            // ContraintsForeignKeyCount_TestAction
+            // 
+            ContraintsForeignKeyCount_TestAction.Conditions.Add(rowCountCondition17);
+            resources.ApplyResources(ContraintsForeignKeyCount_TestAction, "ContraintsForeignKeyCount_TestAction");
+            // 
+            // rowCountCondition17
+            // 
+            rowCountCondition17.Enabled = true;
+            rowCountCondition17.Name = "rowCountCondition17";
+            rowCountCondition17.ResultSet = 1;
+            rowCountCondition17.RowCount = 16;
+            // 
             // TableCountHaendlerdatenData
             // 
             this.TableCountHaendlerdatenData.PosttestAction = null;
@@ -681,35 +728,29 @@ namespace SimplePay.Tests
             this.ColumnCountZusatzData.PretestAction = null;
             this.ColumnCountZusatzData.TestAction = ColumnCountZusatz_TestAction;
             // 
-            // testInitializeAction
-            // 
-            testInitializeAction.Conditions.Add(rowCountCondition16);
-            resources.ApplyResources(testInitializeAction, "testInitializeAction");
-            // 
-            // rowCountCondition16
-            // 
-            rowCountCondition16.Enabled = true;
-            rowCountCondition16.Name = "rowCountCondition16";
-            rowCountCondition16.ResultSet = 1;
-            rowCountCondition16.RowCount = 16;
-            // 
             // ContraintsForeignKeyCountData
             // 
             this.ContraintsForeignKeyCountData.PosttestAction = null;
             this.ContraintsForeignKeyCountData.PretestAction = null;
             this.ContraintsForeignKeyCountData.TestAction = ContraintsForeignKeyCount_TestAction;
             // 
-            // ContraintsForeignKeyCount_TestAction
+            // DatabaseTest1Data
             // 
-            ContraintsForeignKeyCount_TestAction.Conditions.Add(rowCountCondition17);
-            resources.ApplyResources(ContraintsForeignKeyCount_TestAction, "ContraintsForeignKeyCount_TestAction");
+            this.DatabaseTest1Data.PosttestAction = null;
+            this.DatabaseTest1Data.PretestAction = null;
+            this.DatabaseTest1Data.TestAction = DatabaseTest1_TestAction;
             // 
-            // rowCountCondition17
+            // DatabaseTest1_TestAction
             // 
-            rowCountCondition17.Enabled = true;
-            rowCountCondition17.Name = "rowCountCondition17";
-            rowCountCondition17.ResultSet = 1;
-            rowCountCondition17.RowCount = 16;
+            DatabaseTest1_TestAction.Conditions.Add(rowCountCondition18);
+            resources.ApplyResources(DatabaseTest1_TestAction, "DatabaseTest1_TestAction");
+            // 
+            // rowCountCondition18
+            // 
+            rowCountCondition18.Enabled = true;
+            rowCountCondition18.Name = "rowCountCondition18";
+            rowCountCondition18.ResultSet = 1;
+            rowCountCondition18.RowCount = 6;
             // 
             // SimplePay_Haendlerdaten_UnitTest
             // 
@@ -749,5 +790,6 @@ namespace SimplePay.Tests
         private SqlDatabaseTestActions ColumnCountTischData;
         private SqlDatabaseTestActions ColumnCountZusatzData;
         private SqlDatabaseTestActions ContraintsForeignKeyCountData;
+        private SqlDatabaseTestActions DatabaseTest1Data;
     }
 }

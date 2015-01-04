@@ -62,5 +62,45 @@ namespace SimplePay.Tests
             }
         }
 
+        /*
+        * Diese Testmethode prüft ob das Anlegen einer BEstellung problemlos funktioniert
+         */
+        [TestMethod]
+        public void Write_Bestellung()
+        {
+            BestellungController bestellungController = new BestellungController();
+
+            Bestellposition bestellposition1 = new Bestellposition();
+            Bestellposition bestellposition2 = new Bestellposition();
+
+            bestellposition1.menge = 1;
+            bestellposition1.p_id = 1;
+
+            bestellposition2.menge = 2;
+            bestellposition2.p_id = 2;
+
+            List<Bestellposition> bestellpositionen = new List<Bestellposition>();
+            bestellpositionen.Add(bestellposition1);
+            bestellpositionen.Add(bestellposition2);
+
+
+            Kunde_Tisch kunde_tisch = new Kunde_Tisch();
+            kunde_tisch.t_id = 1;
+            kunde_tisch.k_id = 1;
+
+            Bestellung bestellung = new Bestellung();
+
+            bestellung.Bestellposition = bestellpositionen;
+            bestellung.Kunde_Tisch = kunde_tisch;
+            bestellung.k_id = 1;
+            bestellung.mwst_id = 1;
+
+            bestellungController.Post(bestellung);
+
+
+
+        }
+
+
     }
 }
