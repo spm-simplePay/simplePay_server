@@ -30,6 +30,19 @@ namespace SimplePay.Controllers
         public Bestellung Post(Bestellung bestellung)
         {
 
+            Kunde kunde = db.Kunde.Find(bestellung.k_id);
+
+            if (kunde == null)
+            {
+                kunde = new Kunde();
+                kunde.k_id = bestellung.k_id;
+                kunde.eingetragen_am = System.DateTime.Now;
+                db.Kunde.Add(kunde);
+                db.SaveChanges();
+
+            }
+
+
             db.Kunde_Tisch.Add(bestellung.Kunde_Tisch);
             bestellung.kt_id = bestellung.Kunde_Tisch.kt_id;
 
@@ -45,17 +58,8 @@ namespace SimplePay.Controllers
                 bestellposition.datum = System.DateTime.Now;
                 bestellposition.uhrzeit = System.DateTime.Now.TimeOfDay;
             }
-            Kunde kunde = db.Kunde.Find(bestellung.k_id);
 
-            if(kunde == null)
-            {
-                Kunde neuerKunde = new Kunde();
-                neuerKunde.k_id = bestellung.k_id;
-                neuerKunde.eingetragen_am = System.DateTime.Now;
-                db.Kunde.Add(neuerKunde);
-
-            }
-
+            bestellung.Kunde = kunde;
             db.Bestellung.Add(bestellung);
             db.SaveChanges();
 
@@ -74,6 +78,7 @@ namespace SimplePay.Controllers
         // PUT api/bestellung/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE api/bestellung/5

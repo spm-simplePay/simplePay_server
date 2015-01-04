@@ -24,11 +24,12 @@ namespace SimplePay.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+        public DbSet<Kunde> Kunde { get; set; }
         public DbSet<Bestellposition> Bestellposition { get; set; }
         public DbSet<Bestellung> Bestellung { get; set; }
         public DbSet<Kategorie> Kategorie { get; set; }
-        public DbSet<Kunde> Kunde { get; set; }
+        
         public DbSet<Kunde_Tisch> Kunde_Tisch { get; set; }
         public DbSet<Mitarbeiter> Mitarbeiter { get; set; }
         public DbSet<MwSt_Satz> MwSt_Satz { get; set; }
