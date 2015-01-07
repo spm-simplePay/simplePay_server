@@ -156,7 +156,6 @@ eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
 Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
 ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
 */
-
 SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Bestellposition';</value>
   </data>
   <data name="ColumnCountBestellung_TestAction.SqlScript" xml:space="preserve">

@@ -71,6 +71,5 @@ D:\SPM_Projekt\SimplePay\SimplePay\bin\ko\System.Spatial.resources.dll
 D:\SPM_Projekt\SimplePay\SimplePay\bin\ru\System.Spatial.resources.dll
 D:\SPM_Projekt\SimplePay\SimplePay\bin\zh-Hans\System.Spatial.resources.dll
 D:\SPM_Projekt\SimplePay\SimplePay\bin\zh-Hant\System.Spatial.resources.dll
-D:\SPM_Projekt\SimplePay\SimplePay\obj\Debug\SimplePay.csprojResolveAssemblyReference.cache
 D:\SPM_Projekt\SimplePay\SimplePay\obj\Debug\SimplePay.dll
 D:\SPM_Projekt\SimplePay\SimplePay\obj\Debug\SimplePay.pdb

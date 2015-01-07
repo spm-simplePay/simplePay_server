@@ -638,6 +638,18 @@ namespace SimplePay.Tests
             rowCountCondition17.ResultSet = 1;
             rowCountCondition17.RowCount = 16;
             // 
+            // DatabaseTest1_TestAction
+            // 
+            DatabaseTest1_TestAction.Conditions.Add(rowCountCondition18);
+            resources.ApplyResources(DatabaseTest1_TestAction, "DatabaseTest1_TestAction");
+            // 
+            // rowCountCondition18
+            // 
+            rowCountCondition18.Enabled = true;
+            rowCountCondition18.Name = "rowCountCondition18";
+            rowCountCondition18.ResultSet = 1;
+            rowCountCondition18.RowCount = 6;
+            // 
             // TableCountHaendlerdatenData
             // 
             this.TableCountHaendlerdatenData.PosttestAction = null;
@@ -739,18 +751,6 @@ namespace SimplePay.Tests
             this.DatabaseTest1Data.PosttestAction = null;
             this.DatabaseTest1Data.PretestAction = null;
             this.DatabaseTest1Data.TestAction = DatabaseTest1_TestAction;
-            // 
-            // DatabaseTest1_TestAction
-            // 
-            DatabaseTest1_TestAction.Conditions.Add(rowCountCondition18);
-            resources.ApplyResources(DatabaseTest1_TestAction, "DatabaseTest1_TestAction");
-            // 
-            // rowCountCondition18
-            // 
-            rowCountCondition18.Enabled = true;
-            rowCountCondition18.Name = "rowCountCondition18";
-            rowCountCondition18.ResultSet = 1;
-            rowCountCondition18.RowCount = 6;
             // 
             // SimplePay_Haendlerdaten_UnitTest
             // 
