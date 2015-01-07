@@ -21,7 +21,7 @@ namespace SimplePay.Controllers
             var quittungen = new List<Bestellung>();
             try
             {
-                sql = @"Select * From [Bestellung] WHERE k_id = {0}";
+                sql = @"Select * From [Bestellung] WHERE k_id = {0} ORDER BY datum desc, uhrzeit desc";
                 return quittungen = db.Bestellung.SqlQuery(sql, k_id).ToList<Bestellung>();
 
             }
