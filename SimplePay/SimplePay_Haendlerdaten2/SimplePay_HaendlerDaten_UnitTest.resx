@@ -117,6 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ColumnCountProduct_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
+auszuführen.
+
+Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
+eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
+
+Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
+ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
+*/
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Produkt';</value>
+  </data>
   <data name="TableCountHaendlerdaten_TestAction.SqlScript" xml:space="preserve">
     <value>/*
 Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
@@ -128,10 +141,9 @@ eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
 Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
 ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
 */
-
 SELECT * FROM INFORMATION_SCHEMA.TABLES;</value>
   </data>
-  <data name="ColumnCountProdukt_TestAction.SqlScript" xml:space="preserve">
+  <data name="ConstraintsForeignKeyHaendlerdatenCount_TestAction.SqlScript" xml:space="preserve">
     <value>/*
 Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
 auszuführen.
@@ -142,8 +154,7 @@ eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
 Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
 ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
 */
-
-SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Produkt';</value>
+SELECT * FROM SimplePay_Haendlerdaten.INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE='FOREIGN KEY';</value>
   </data>
   <data name="ColumnCountBestellposition_TestAction.SqlScript" xml:space="preserve">
     <value>/*
@@ -313,42 +324,6 @@ Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüf
 ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
 */
 SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Zusatz';</value>
-  </data>
-  <data name="testInitializeAction.SqlScript" xml:space="preserve">
-    <value>/*
-Fügen Sie hier SQL-Anweisungen hinzu, die Sie vor jeder Testmethode (Komponententest) 
-ausführen möchten, die in dieser Klasse ausgeführt wird.
-
-Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
-ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
-*/
-SELECT * FROM SimplePay_Haendlerdaten.INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE='FOREIGN KEY';</value>
-  </data>
-  <data name="ContraintsForeignKeyCount_TestAction.SqlScript" xml:space="preserve">
-    <value>/*
-Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
-auszuführen.
-
-Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
-eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
-
-Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
-ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
-*/
-SELECT * FROM SimplePay_Haendlerdaten.INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE CONSTRAINT_TYPE='FOREIGN KEY';</value>
-  </data>
-  <data name="DatabaseTest1_TestAction.SqlScript" xml:space="preserve">
-    <value>/*
-Fügen Sie hier SQL-Anweisungen hinzu, um das zu testende Datenbankobjekt 
-auszuführen.
-
-Um eine gespeicherte Prozedur zu testen, rufen Sie diese hier auf, indem Sie 
-eine EXEC-Anweisung mit den entsprechenden Parametern aufrufen.
-
-Im unteren Bereich können Sie Testbedingungen hinzufügen, durch die überprüft wird, 
-ob die Ergebnisse der SQL-Anweisungen den erwarteten Ergebnissen entsprechen.
-*/
-SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Bestellposition';</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
