@@ -11,6 +11,7 @@ namespace SimplePay_Haendlerdaten2
     public class UnitTest2
     {
 
+
         TransactionScope _trans;
 
         /*
@@ -63,12 +64,13 @@ namespace SimplePay_Haendlerdaten2
         }
 
         /*
-        * Diese Testmethode prüft ob das Anlegen einer BEstellung problemlos funktioniert
+        * Diese Testmethode prüft ob das Anlegen einer Bestellung problemlos funktioniert
          */
         [TestMethod]
         public void Write_Bestellung()
         {
             BestellungController bestellungController = new BestellungController();
+            QuittungController quittungController = new QuittungController();
 
             Bestellposition bestellposition1 = new Bestellposition();
             Bestellposition bestellposition2 = new Bestellposition();
@@ -96,6 +98,27 @@ namespace SimplePay_Haendlerdaten2
             bestellung.mwst_id = 1;
 
             bestellungController.Post(bestellung);
+
+            Bestellung quittung = bestellungController.Get();
+            int bestell_id = quittung.b_id;
+
+            IEnumerable<Bestellung> quittungen = quittungController.Get(bestellung.k_id);
+
+            bool rechnung_erstellt = false;
+            foreach(Bestellung bestellung2 in quittungen)
+            {
+                rechnung_erstellt = false;
+                if (bestellung2.b_id == bestell_id)
+                {
+                    rechnung_erstellt = true; 
+                }
+
+            }
+            if (rechnung_erstellt == false)
+            {
+                throw new Exception();
+            }
+
 
 
 
