@@ -5,7 +5,7 @@ using SimplePay.Controllers;
 using System.Collections.Generic;
 using System.Transactions;
 
-namespace SimplePay.Tests
+namespace SimplePay.Test
 {
     [TestClass]
     public class UnitTest2

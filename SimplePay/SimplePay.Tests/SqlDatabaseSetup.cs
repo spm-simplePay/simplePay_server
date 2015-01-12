@@ -6,7 +6,7 @@ using System.Data.Common;
 using Microsoft.Data.Tools.Schema.Sql.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SimplePay.Tests
+namespace SimplePay.Test
 {
     [TestClass()]
     public class SqlDatabaseSetup

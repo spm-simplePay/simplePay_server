@@ -407,12 +407,6 @@ namespace SimplePay_Haendlerdaten2
             ColumnCountZusatz_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             rowCountCondition16 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             // 
-            // ColumnCountProductData
-            // 
-            this.ColumnCountProductData.PosttestAction = null;
-            this.ColumnCountProductData.PretestAction = null;
-            this.ColumnCountProductData.TestAction = ColumnCountProduct_TestAction;
-            // 
             // ColumnCountProduct_TestAction
             // 
             ColumnCountProduct_TestAction.Conditions.Add(rowCountCondition1);
@@ -424,12 +418,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition1.Name = "rowCountCondition1";
             rowCountCondition1.ResultSet = 1;
             rowCountCondition1.RowCount = 6;
-            // 
-            // TableCountHaendlerdatenData
-            // 
-            this.TableCountHaendlerdatenData.PosttestAction = null;
-            this.TableCountHaendlerdatenData.PretestAction = null;
-            this.TableCountHaendlerdatenData.TestAction = TableCountHaendlerdaten_TestAction;
             // 
             // TableCountHaendlerdaten_TestAction
             // 
@@ -443,12 +431,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition2.ResultSet = 1;
             rowCountCondition2.RowCount = 16;
             // 
-            // ConstraintsForeignKeyHaendlerdatenCountData
-            // 
-            this.ConstraintsForeignKeyHaendlerdatenCountData.PosttestAction = null;
-            this.ConstraintsForeignKeyHaendlerdatenCountData.PretestAction = null;
-            this.ConstraintsForeignKeyHaendlerdatenCountData.TestAction = ConstraintsForeignKeyHaendlerdatenCount_TestAction;
-            // 
             // ConstraintsForeignKeyHaendlerdatenCount_TestAction
             // 
             ConstraintsForeignKeyHaendlerdatenCount_TestAction.Conditions.Add(rowCountCondition3);
@@ -460,12 +442,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition3.Name = "rowCountCondition3";
             rowCountCondition3.ResultSet = 1;
             rowCountCondition3.RowCount = 14;
-            // 
-            // ColumnCountBestellpositionData
-            // 
-            this.ColumnCountBestellpositionData.PosttestAction = null;
-            this.ColumnCountBestellpositionData.PretestAction = null;
-            this.ColumnCountBestellpositionData.TestAction = ColumnCountBestellposition_TestAction;
             // 
             // ColumnCountBestellposition_TestAction
             // 
@@ -479,12 +455,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition4.ResultSet = 1;
             rowCountCondition4.RowCount = 6;
             // 
-            // ColumnCountBestellungData
-            // 
-            this.ColumnCountBestellungData.PosttestAction = null;
-            this.ColumnCountBestellungData.PretestAction = null;
-            this.ColumnCountBestellungData.TestAction = ColumnCountBestellung_TestAction;
-            // 
             // ColumnCountBestellung_TestAction
             // 
             ColumnCountBestellung_TestAction.Conditions.Add(rowCountCondition5);
@@ -495,13 +465,7 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition5.Enabled = true;
             rowCountCondition5.Name = "rowCountCondition5";
             rowCountCondition5.ResultSet = 1;
-            rowCountCondition5.RowCount = 7;
-            // 
-            // ColumnCountKategorieData
-            // 
-            this.ColumnCountKategorieData.PosttestAction = null;
-            this.ColumnCountKategorieData.PretestAction = null;
-            this.ColumnCountKategorieData.TestAction = ColumnCountKategorie_TestAction;
+            rowCountCondition5.RowCount = 8;
             // 
             // ColumnCountKategorie_TestAction
             // 
@@ -515,12 +479,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition6.ResultSet = 1;
             rowCountCondition6.RowCount = 4;
             // 
-            // ColumnCountKundeData
-            // 
-            this.ColumnCountKundeData.PosttestAction = null;
-            this.ColumnCountKundeData.PretestAction = null;
-            this.ColumnCountKundeData.TestAction = ColumnCountKunde_TestAction;
-            // 
             // ColumnCountKunde_TestAction
             // 
             ColumnCountKunde_TestAction.Conditions.Add(rowCountCondition7);
@@ -532,12 +490,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition7.Name = "rowCountCondition7";
             rowCountCondition7.ResultSet = 1;
             rowCountCondition7.RowCount = 2;
-            // 
-            // ColumnCountKunde_TischData
-            // 
-            this.ColumnCountKunde_TischData.PosttestAction = null;
-            this.ColumnCountKunde_TischData.PretestAction = null;
-            this.ColumnCountKunde_TischData.TestAction = ColumnCountKunde_Tisch_TestAction;
             // 
             // ColumnCountKunde_Tisch_TestAction
             // 
@@ -551,12 +503,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition8.ResultSet = 1;
             rowCountCondition8.RowCount = 3;
             // 
-            // ColumnCountMitarbeiterData
-            // 
-            this.ColumnCountMitarbeiterData.PosttestAction = null;
-            this.ColumnCountMitarbeiterData.PretestAction = null;
-            this.ColumnCountMitarbeiterData.TestAction = ColumnCountMitarbeiter_TestAction;
-            // 
             // ColumnCountMitarbeiter_TestAction
             // 
             ColumnCountMitarbeiter_TestAction.Conditions.Add(rowCountCondition9);
@@ -568,12 +514,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition9.Name = "rowCountCondition9";
             rowCountCondition9.ResultSet = 1;
             rowCountCondition9.RowCount = 8;
-            // 
-            // ColumnCountMwSt_SatzData
-            // 
-            this.ColumnCountMwSt_SatzData.PosttestAction = null;
-            this.ColumnCountMwSt_SatzData.PretestAction = null;
-            this.ColumnCountMwSt_SatzData.TestAction = ColumnCountMwSt_Satz_TestAction;
             // 
             // ColumnCountMwSt_Satz_TestAction
             // 
@@ -587,12 +527,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition10.ResultSet = 1;
             rowCountCondition10.RowCount = 4;
             // 
-            // ColumnCountProdukt_KategorieData
-            // 
-            this.ColumnCountProdukt_KategorieData.PosttestAction = null;
-            this.ColumnCountProdukt_KategorieData.PretestAction = null;
-            this.ColumnCountProdukt_KategorieData.TestAction = ColumnCountProdukt_Kategorie_TestAction;
-            // 
             // ColumnCountProdukt_Kategorie_TestAction
             // 
             ColumnCountProdukt_Kategorie_TestAction.Conditions.Add(rowCountCondition11);
@@ -604,12 +538,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition11.Name = "rowCountCondition11";
             rowCountCondition11.ResultSet = 1;
             rowCountCondition11.RowCount = 3;
-            // 
-            // ColumnCountProdukt_ZusatzData
-            // 
-            this.ColumnCountProdukt_ZusatzData.PosttestAction = null;
-            this.ColumnCountProdukt_ZusatzData.PretestAction = null;
-            this.ColumnCountProdukt_ZusatzData.TestAction = ColumnCountProdukt_Zusatz_TestAction;
             // 
             // ColumnCountProdukt_Zusatz_TestAction
             // 
@@ -623,12 +551,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition12.ResultSet = 1;
             rowCountCondition12.RowCount = 3;
             // 
-            // ColumnCountRechnungData
-            // 
-            this.ColumnCountRechnungData.PosttestAction = null;
-            this.ColumnCountRechnungData.PretestAction = null;
-            this.ColumnCountRechnungData.TestAction = ColumnCountRechnung_TestAction;
-            // 
             // ColumnCountRechnung_TestAction
             // 
             ColumnCountRechnung_TestAction.Conditions.Add(rowCountCondition13);
@@ -640,12 +562,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition13.Name = "rowCountCondition13";
             rowCountCondition13.ResultSet = 1;
             rowCountCondition13.RowCount = 5;
-            // 
-            // ColumnCountRolleData
-            // 
-            this.ColumnCountRolleData.PosttestAction = null;
-            this.ColumnCountRolleData.PretestAction = null;
-            this.ColumnCountRolleData.TestAction = ColumnCountRolle_TestAction;
             // 
             // ColumnCountRolle_TestAction
             // 
@@ -659,12 +575,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition14.ResultSet = 1;
             rowCountCondition14.RowCount = 3;
             // 
-            // ColumnCountTischData
-            // 
-            this.ColumnCountTischData.PosttestAction = null;
-            this.ColumnCountTischData.PretestAction = null;
-            this.ColumnCountTischData.TestAction = ColumnCountTisch_TestAction;
-            // 
             // ColumnCountTisch_TestAction
             // 
             ColumnCountTisch_TestAction.Conditions.Add(rowCountCondition15);
@@ -677,12 +587,6 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition15.ResultSet = 1;
             rowCountCondition15.RowCount = 3;
             // 
-            // ColumnCountZusatzData
-            // 
-            this.ColumnCountZusatzData.PosttestAction = null;
-            this.ColumnCountZusatzData.PretestAction = null;
-            this.ColumnCountZusatzData.TestAction = ColumnCountZusatz_TestAction;
-            // 
             // ColumnCountZusatz_TestAction
             // 
             ColumnCountZusatz_TestAction.Conditions.Add(rowCountCondition16);
@@ -694,6 +598,102 @@ namespace SimplePay_Haendlerdaten2
             rowCountCondition16.Name = "rowCountCondition16";
             rowCountCondition16.ResultSet = 1;
             rowCountCondition16.RowCount = 4;
+            // 
+            // ColumnCountProductData
+            // 
+            this.ColumnCountProductData.PosttestAction = null;
+            this.ColumnCountProductData.PretestAction = null;
+            this.ColumnCountProductData.TestAction = ColumnCountProduct_TestAction;
+            // 
+            // TableCountHaendlerdatenData
+            // 
+            this.TableCountHaendlerdatenData.PosttestAction = null;
+            this.TableCountHaendlerdatenData.PretestAction = null;
+            this.TableCountHaendlerdatenData.TestAction = TableCountHaendlerdaten_TestAction;
+            // 
+            // ConstraintsForeignKeyHaendlerdatenCountData
+            // 
+            this.ConstraintsForeignKeyHaendlerdatenCountData.PosttestAction = null;
+            this.ConstraintsForeignKeyHaendlerdatenCountData.PretestAction = null;
+            this.ConstraintsForeignKeyHaendlerdatenCountData.TestAction = ConstraintsForeignKeyHaendlerdatenCount_TestAction;
+            // 
+            // ColumnCountBestellpositionData
+            // 
+            this.ColumnCountBestellpositionData.PosttestAction = null;
+            this.ColumnCountBestellpositionData.PretestAction = null;
+            this.ColumnCountBestellpositionData.TestAction = ColumnCountBestellposition_TestAction;
+            // 
+            // ColumnCountBestellungData
+            // 
+            this.ColumnCountBestellungData.PosttestAction = null;
+            this.ColumnCountBestellungData.PretestAction = null;
+            this.ColumnCountBestellungData.TestAction = ColumnCountBestellung_TestAction;
+            // 
+            // ColumnCountKategorieData
+            // 
+            this.ColumnCountKategorieData.PosttestAction = null;
+            this.ColumnCountKategorieData.PretestAction = null;
+            this.ColumnCountKategorieData.TestAction = ColumnCountKategorie_TestAction;
+            // 
+            // ColumnCountKundeData
+            // 
+            this.ColumnCountKundeData.PosttestAction = null;
+            this.ColumnCountKundeData.PretestAction = null;
+            this.ColumnCountKundeData.TestAction = ColumnCountKunde_TestAction;
+            // 
+            // ColumnCountKunde_TischData
+            // 
+            this.ColumnCountKunde_TischData.PosttestAction = null;
+            this.ColumnCountKunde_TischData.PretestAction = null;
+            this.ColumnCountKunde_TischData.TestAction = ColumnCountKunde_Tisch_TestAction;
+            // 
+            // ColumnCountMitarbeiterData
+            // 
+            this.ColumnCountMitarbeiterData.PosttestAction = null;
+            this.ColumnCountMitarbeiterData.PretestAction = null;
+            this.ColumnCountMitarbeiterData.TestAction = ColumnCountMitarbeiter_TestAction;
+            // 
+            // ColumnCountMwSt_SatzData
+            // 
+            this.ColumnCountMwSt_SatzData.PosttestAction = null;
+            this.ColumnCountMwSt_SatzData.PretestAction = null;
+            this.ColumnCountMwSt_SatzData.TestAction = ColumnCountMwSt_Satz_TestAction;
+            // 
+            // ColumnCountProdukt_KategorieData
+            // 
+            this.ColumnCountProdukt_KategorieData.PosttestAction = null;
+            this.ColumnCountProdukt_KategorieData.PretestAction = null;
+            this.ColumnCountProdukt_KategorieData.TestAction = ColumnCountProdukt_Kategorie_TestAction;
+            // 
+            // ColumnCountProdukt_ZusatzData
+            // 
+            this.ColumnCountProdukt_ZusatzData.PosttestAction = null;
+            this.ColumnCountProdukt_ZusatzData.PretestAction = null;
+            this.ColumnCountProdukt_ZusatzData.TestAction = ColumnCountProdukt_Zusatz_TestAction;
+            // 
+            // ColumnCountRechnungData
+            // 
+            this.ColumnCountRechnungData.PosttestAction = null;
+            this.ColumnCountRechnungData.PretestAction = null;
+            this.ColumnCountRechnungData.TestAction = ColumnCountRechnung_TestAction;
+            // 
+            // ColumnCountRolleData
+            // 
+            this.ColumnCountRolleData.PosttestAction = null;
+            this.ColumnCountRolleData.PretestAction = null;
+            this.ColumnCountRolleData.TestAction = ColumnCountRolle_TestAction;
+            // 
+            // ColumnCountTischData
+            // 
+            this.ColumnCountTischData.PosttestAction = null;
+            this.ColumnCountTischData.PretestAction = null;
+            this.ColumnCountTischData.TestAction = ColumnCountTisch_TestAction;
+            // 
+            // ColumnCountZusatzData
+            // 
+            this.ColumnCountZusatzData.PosttestAction = null;
+            this.ColumnCountZusatzData.PretestAction = null;
+            this.ColumnCountZusatzData.TestAction = ColumnCountZusatz_TestAction;
         }
 
         #endregion
