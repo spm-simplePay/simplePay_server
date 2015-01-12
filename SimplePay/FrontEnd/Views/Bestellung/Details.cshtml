@@ -1,0 +1,66 @@
+﻿@model FrontEnd.Models.Bestellung
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bestellung</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uhrzeit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uhrzeit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kunde.k_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kunde.k_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kunde_Tisch.kt_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kunde_Tisch.kt_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mitarbeiter.vorname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mitarbeiter.vorname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MwSt_Satz.mwst_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MwSt_Satz.mwst_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.b_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

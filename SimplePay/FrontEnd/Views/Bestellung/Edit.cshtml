@@ -1,0 +1,82 @@
+﻿@model FrontEnd.Models.Bestellung
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Bestellung</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.b_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.datum, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.datum)
+                @Html.ValidationMessageFor(model => model.datum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.uhrzeit, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.uhrzeit)
+                @Html.ValidationMessageFor(model => model.uhrzeit)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.k_id, "k_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("k_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.k_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.mwst_id, "mwst_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("mwst_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.mwst_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.m_id, "m_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("m_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.m_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.kt_id, "kt_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("kt_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.kt_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
