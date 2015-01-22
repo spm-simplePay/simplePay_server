@@ -24,7 +24,6 @@ namespace FrontEnd.Models
         public int k_id { get; set; }
     
         public virtual ICollection<Bestellung> Bestellung { get; set; }
-        public virtual Kunde Kunde { get; set; }
         public virtual Tisch Tisch { get; set; }
     }
 }

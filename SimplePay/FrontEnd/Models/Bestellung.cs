@@ -27,6 +27,7 @@ namespace FrontEnd.Models
         public int mwst_id { get; set; }
         public int m_id { get; set; }
         public int kt_id { get; set; }
+        public Nullable<bool> erledigt { get; set; }
     
         public virtual ICollection<Bestellposition> Bestellposition { get; set; }
         public virtual Kunde Kunde { get; set; }

@@ -17,13 +17,11 @@ namespace FrontEnd.Models
         public Kunde()
         {
             this.Bestellung = new HashSet<Bestellung>();
-            this.Kunde_Tisch = new HashSet<Kunde_Tisch>();
         }
     
         public int k_id { get; set; }
         public System.DateTime eingetragen_am { get; set; }
     
         public virtual ICollection<Bestellung> Bestellung { get; set; }
-        public virtual ICollection<Kunde_Tisch> Kunde_Tisch { get; set; }
     }
 }

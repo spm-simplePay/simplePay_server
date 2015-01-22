@@ -244,6 +244,8 @@
     <Content Include="Views\Bestellung\Details.cshtml" />
     <Content Include="Views\Bestellung\Edit.cshtml" />
     <Content Include="Views\Bestellung\Index.cshtml" />
+    <Content Include="Views\Bestellung\alleBestellungen.cshtml" />
+    <Content Include="Views\Bestellung\fertigeBestellungen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

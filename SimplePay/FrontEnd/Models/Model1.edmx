@@ -27,6 +27,7 @@
           <Property Name="mwst_id" Type="int" Nullable="false" />
           <Property Name="m_id" Type="int" Nullable="false" />
           <Property Name="kt_id" Type="int" Nullable="false" />
+          <Property Name="erledigt" Type="bit" />
         </EntityType>
         <EntityType Name="Kategorie">
           <Key>
@@ -41,7 +42,7 @@
           <Key>
             <PropertyRef Name="k_id" />
           </Key>
-          <Property Name="k_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="k_id" Type="int" Nullable="false" />
           <Property Name="eingetragen_am" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Kunde_Tisch">
@@ -224,18 +225,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Kunde_Tisch_Kunde">
-          <End Role="Kunde" Type="Self.Kunde" Multiplicity="1" />
-          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kunde">
-              <PropertyRef Name="k_id" />
-            </Principal>
-            <Dependent Role="Kunde_Tisch">
-              <PropertyRef Name="k_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Kunde_Tisch_Tisch">
           <End Role="Tisch" Type="Self.Tisch" Multiplicity="1" />
           <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
@@ -385,10 +374,6 @@
             <End Role="MwSt_Satz" EntitySet="MwSt_Satz" />
             <End Role="Bestellung" EntitySet="Bestellung" />
           </AssociationSet>
-          <AssociationSet Name="FK_Kunde_Tisch_Kunde" Association="Self.FK_Kunde_Tisch_Kunde">
-            <End Role="Kunde" EntitySet="Kunde" />
-            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
-          </AssociationSet>
           <AssociationSet Name="FK_Kunde_Tisch_Tisch" Association="Self.FK_Kunde_Tisch_Tisch">
             <End Role="Tisch" EntitySet="Tisch" />
             <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
@@ -455,6 +440,7 @@
           <Property Name="mwst_id" Type="Int32" Nullable="false" />
           <Property Name="m_id" Type="Int32" Nullable="false" />
           <Property Name="kt_id" Type="Int32" Nullable="false" />
+          <Property Name="erledigt" Type="Boolean" />
           <NavigationProperty Name="Bestellposition" Relationship="Self.FK_Bestellposition_Bestellung" FromRole="Bestellung" ToRole="Bestellposition" />
           <NavigationProperty Name="Kunde" Relationship="Self.FK_Bestellung_Kunde" FromRole="Bestellung" ToRole="Kunde" />
           <NavigationProperty Name="Kunde_Tisch" Relationship="Self.FK_Bestellung_Kunde_Tisch" FromRole="Bestellung" ToRole="Kunde_Tisch" />
@@ -476,10 +462,9 @@
           <Key>
             <PropertyRef Name="k_id" />
           </Key>
-          <Property Name="k_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="k_id" Type="Int32" Nullable="false" />
           <Property Name="eingetragen_am" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Bestellung" Relationship="Self.FK_Bestellung_Kunde" FromRole="Kunde" ToRole="Bestellung" />
-          <NavigationProperty Name="Kunde_Tisch" Relationship="Self.FK_Kunde_Tisch_Kunde" FromRole="Kunde" ToRole="Kunde_Tisch" />
         </EntityType>
         <EntityType Name="Kunde_Tisch">
           <Key>
@@ -489,7 +474,6 @@
           <Property Name="t_id" Type="Int32" Nullable="false" />
           <Property Name="k_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Bestellung" Relationship="Self.FK_Bestellung_Kunde_Tisch" FromRole="Kunde_Tisch" ToRole="Bestellung" />
-          <NavigationProperty Name="Kunde" Relationship="Self.FK_Kunde_Tisch_Kunde" FromRole="Kunde_Tisch" ToRole="Kunde" />
           <NavigationProperty Name="Tisch" Relationship="Self.FK_Kunde_Tisch_Tisch" FromRole="Kunde_Tisch" ToRole="Tisch" />
         </EntityType>
         <EntityType Name="Mitarbeiter">
@@ -706,18 +690,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Kunde_Tisch_Kunde">
-          <End Role="Kunde" Type="Self.Kunde" Multiplicity="1" />
-          <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kunde">
-              <PropertyRef Name="k_id" />
-            </Principal>
-            <Dependent Role="Kunde_Tisch">
-              <PropertyRef Name="k_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Kunde_Tisch_Tisch">
           <End Role="Tisch" Type="Self.Tisch" Multiplicity="1" />
           <End Role="Kunde_Tisch" Type="Self.Kunde_Tisch" Multiplicity="*" />
@@ -851,10 +823,6 @@
             <End Role="Kategorie" EntitySet="Kategorie" />
             <End Role="Produkt_Kategorie" EntitySet="Produkt_Kategorie" />
           </AssociationSet>
-          <AssociationSet Name="FK_Kunde_Tisch_Kunde" Association="Self.FK_Kunde_Tisch_Kunde">
-            <End Role="Kunde" EntitySet="Kunde" />
-            <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
-          </AssociationSet>
           <AssociationSet Name="FK_Kunde_Tisch_Tisch" Association="Self.FK_Kunde_Tisch_Tisch">
             <End Role="Tisch" EntitySet="Tisch" />
             <End Role="Kunde_Tisch" EntitySet="Kunde_Tisch" />
@@ -912,6 +880,7 @@
                 <ScalarProperty Name="mwst_id" ColumnName="mwst_id" />
                 <ScalarProperty Name="m_id" ColumnName="m_id" />
                 <ScalarProperty Name="kt_id" ColumnName="kt_id" />
+                <ScalarProperty Name="erledigt" ColumnName="erledigt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

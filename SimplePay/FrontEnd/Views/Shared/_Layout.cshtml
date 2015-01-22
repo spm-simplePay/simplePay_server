@@ -22,11 +22,11 @@
                 @Html.ActionLink("SimplePay", "Index", "Bestellung", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @*<ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Info", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                </ul>*@
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Offene Bestellungen", "Index", "Bestellung")</li>
+                    <li>@Html.ActionLink("Erledigte Bestellungen", "fertigeBestellungen", "Bestellung")</li>
+                    <li>@Html.ActionLink("Alle Bestellungen", "alleBestellungen", "Bestellung")</li>
+                </ul>
             </div>
         </div>
     </div>

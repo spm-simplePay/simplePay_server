@@ -12,12 +12,28 @@ namespace FrontEnd.Controllers
 {
     public class BestellungController : Controller
     {
-        private SimplePay_HaendlerdatenEntities db = new SimplePay_HaendlerdatenEntities();
+        private  SimplePay_HaendlerdatenEntities db = new SimplePay_HaendlerdatenEntities();
 
         // GET: /Bestellung/
         public ActionResult Index()
         {
-            var bestellung = db.Bestellung.Include(b => b.Kunde).Include(b => b.Kunde_Tisch).Include(b => b.Mitarbeiter).Include(b => b.MwSt_Satz).Include(b => b.Bestellposition).OrderByDescending(b => b.datum);
+            var bestellung = db.Bestellung.Include(b => b.Kunde).Include(b => b.Kunde_Tisch).Include(b => b.Mitarbeiter).Include(b => b.MwSt_Satz).Include(b => b.Bestellposition).OrderByDescending(b => b.datum).ThenByDescending(b => b.uhrzeit).Where(b => b.erledigt != true);
+            var bestellung1 = new List<Bestellung>();
+            bestellung1 = bestellung.ToList();
+            return View(bestellung1);
+        }
+
+        public ActionResult fertigeBestellungen()
+        {
+            var bestellung = db.Bestellung.Include(b => b.Kunde).Include(b => b.Kunde_Tisch).Include(b => b.Mitarbeiter).Include(b => b.MwSt_Satz).Include(b => b.Bestellposition).OrderByDescending(b => b.datum).ThenByDescending(b => b.uhrzeit).Where(b => b.erledigt == true);
+            var bestellung1 = new List<Bestellung>();
+            bestellung1 = bestellung.ToList();
+            return View(bestellung1);
+        }
+
+        public ActionResult alleBestellungen()
+        {
+            var bestellung = db.Bestellung.Include(b => b.Kunde).Include(b => b.Kunde_Tisch).Include(b => b.Mitarbeiter).Include(b => b.MwSt_Satz).Include(b => b.Bestellposition).OrderByDescending(b => b.datum).ThenByDescending(b => b.uhrzeit);
             var bestellung1 = new List<Bestellung>();
             bestellung1 = bestellung.ToList();
             return View(bestellung1);
@@ -108,6 +124,43 @@ namespace FrontEnd.Controllers
             return View(bestellung);
         }
 
+        public ActionResult Erledigt(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Bestellung bestellung = db.Bestellung.Find(id);
+            if (bestellung == null)
+            {
+                return HttpNotFound();
+            }
+
+            bestellung.erledigt = true;
+            db.Entry(bestellung).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult Revert(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Bestellung bestellung = db.Bestellung.Find(id);
+            if (bestellung == null)
+            {
+                return HttpNotFound();
+            }
+
+            bestellung.erledigt = false;
+            db.Entry(bestellung).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("fertigeBestellungen");
+
+        }
         // GET: /Bestellung/Delete/5
         public ActionResult Delete(int? id)
         {
